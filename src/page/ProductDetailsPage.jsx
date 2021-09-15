@@ -1,26 +1,27 @@
 import React, {useState,useEffect} from "react";
 import "../App.css";
-import { getAllProducts } from "../api/ProductApi";
-import { ProductCard } from "../component/product/ProductCard";
+import { getProductById } from "../api/ProductApi";
 
-
-export const MarketPage = () => {
+export const ProductDetailsPage= () => {
     
-    const [allProducts,setAllProducts]=useState();
+    const productId=props.match.params.productId;
+
+    const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
 
     useEffect(()=>{
-        getAllProducts()
+        getProductById(productId)
             .then(response=>{
                 console.log(response.data)
-                setAllProducts(response.data)
+                setProductData(response.data)
             }).then(response2=>setIsLoaded(true))
     },[])
 
     return (
         isLoaded ? 
         <div className="App">
-            {allProducts.map(product=><ProductCard key={product.id} product={product}/>)}
+            <h1>{productData.name}</h1>
+            <p>{productData.price}</p>
         </div>
         :
         <p>Loading</p>              
