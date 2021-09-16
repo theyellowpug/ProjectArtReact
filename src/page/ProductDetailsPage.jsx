@@ -2,9 +2,9 @@ import React, {useState,useEffect} from "react";
 import "../App.css";
 import { getProductById } from "../api/ProductApi";
 
-export const ProductDetailsPage= () => {
+export const ProductDetailsPage= (props) => {
     
-    const productId=1//props.match.params.productId;
+    const productId=props.match.params.productId;
 
     const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
