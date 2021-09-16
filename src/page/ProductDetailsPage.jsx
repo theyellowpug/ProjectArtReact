@@ -4,7 +4,7 @@ import { getProductById } from "../api/ProductApi";
 
 export const ProductDetailsPage= () => {
     
-    const productId=props.match.params.productId;
+    const productId=1//props.match.params.productId;
 
     const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
