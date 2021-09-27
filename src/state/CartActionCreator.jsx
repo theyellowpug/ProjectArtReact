@@ -1,17 +1,17 @@
-export const depositMoney = (amount) => {
+export const addToCart = (productId) => {
     return (dispatch) => {
         dispatch({
-            type: "deposit",
-            payload: amount
-        });
+            type: "addToCart",
+            payload: productId
+        })
     }
 }
 
-export const withdrawMoney = (amount) => {
+export const removeFromCart = (productId) => {
     return (dispatch) => {
         dispatch({
-            type: "withdraw",
-            payload: amount
-        });
+            type: "removeFromCart",
+            payload: productId
+        })
     }
 }

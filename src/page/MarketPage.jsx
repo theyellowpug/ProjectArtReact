@@ -9,6 +9,7 @@ export const MarketPage = () => {
     const [allProducts,setAllProducts]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
 
+
     useEffect(()=>{
         getAllProducts()
             .then(response=>{

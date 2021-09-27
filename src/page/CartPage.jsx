@@ -8,15 +8,11 @@ import  {CartActionCreators} from "../state/CartActions";
 
 export const CartPage = (props) => {
 
-    const state = useSelector((state) => state.cart);
-
-    const dispatch = useDispatch();
-    
-    const { depositMoney, withdrawMoney } = bindActionCreators( CartActionCreators,dispatch);
-
-    console.log(state)
-
+    const state = useSelector((state) => state);
     const history = useHistory();
+
+    const dispatch = useDispatch();    
+    const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
 
     const forwardToCheckoutPage = (event) =>{
         event.preventDefault();
@@ -24,14 +20,20 @@ export const CartPage = (props) => {
     }
 
     return (
-        <div className="App">
-            <p>Cart Placeholder</p>
-            <button onClick={forwardToCheckoutPage}>Checkout</button>
-            <h1>{state}</h1>
-            <button onClick={() => depositMoney(1000)}>Deposit</button>
-            <button onClick={() => withdrawMoney(1000)}>Withdraw</button>
-        </div>
-
-      );
+        state.cart.length === 0 ? (
+            <div>
+                <h1>Cart is empty</h1>
+            </div>
+        ) 
+        : 
+        (
+            <div className="App">
+                <p>Cart Placeholder</p>
+                <button onClick={forwardToCheckoutPage}>Checkout</button>
+                <p>Cart elements:</p>
+                {state.cart.map(productId=><ul key={productId}>{productId}</ul>)}
+                <button onClick={() => addToCart(1)}>Add to cart</button>
+            </div>
+        ));
 }
 

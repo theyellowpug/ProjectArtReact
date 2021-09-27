@@ -1,17 +1,19 @@
 import React from "react";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux';
+import { CartActionCreators } from "../../state/CartActions";
 
 export const ProductCard = (props) => {
 
     const history=useHistory();
 
+    const dispatch = useDispatch();    
+    const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
+
     const forwardToDetailsPage = (event) =>{
         event.preventDefault();
         history.push("/productDetails/"+props.product.id)
-    }
-
-    const addToCart = (event) =>{
-        console.log("Add to cart Redux")
     }
 
     return(
@@ -21,7 +23,7 @@ export const ProductCard = (props) => {
             <p>{props.product.price} Ft</p>
             <p>{props.product.description}</p>
             <button onClick={forwardToDetailsPage}>Details</button>
-            <button onClick={addToCart}>Add to cart</button>
+            <button onClick={() => addToCart(props.product.id)}>Add to cart</button>
         </div>
     )
 }

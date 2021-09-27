@@ -1,13 +1,14 @@
-const initialState = 0;
+const initialState = [];
 
 const CartReducer = (state = initialState, action) => {
+
     switch (action.type) {
-        case "deposit":
-            return state + action.payload;
-        case "withdraw":
-            return state - action.payload
+        case "addToCart":
+            return state.includes(action.payload) ? state : state.concat(action.payload);
+        case "removeFromCart":
+            return state.length === 0 ? state : state.pop(action.payload);
         default:
-            return state
+            return state;
     }
 }
 

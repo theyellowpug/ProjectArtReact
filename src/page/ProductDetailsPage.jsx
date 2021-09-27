@@ -2,19 +2,20 @@ import React, {useState,useEffect} from "react";
 import "../App.css";
 import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
+import { useDispatch } from "react-redux";
+import { bindActionCreators } from 'redux';
+import { CartActionCreators } from "../state/CartActions";
 
 export const ProductDetailsPage= (props) => {
     
     const productId=props.match.params.productId;
-
     const history = useHistory();
+
+    const dispatch = useDispatch();    
+    const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
 
     const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
-
-    const addToCart = (event) =>{
-        console.log("Add to cart Redux")
-    }
 
     useEffect(()=>{
         getProductById(productId)
@@ -29,7 +30,7 @@ export const ProductDetailsPage= (props) => {
         <div className="App">
             <h1>{productData.name}</h1>
             <p>{productData.price}</p>
-            <button onClick={addToCart}>Add to cart</button>
+            <button onClick={()=>addToCart(productData.id)}>Add to cart</button>
         </div>
         :
         <p>Loading</p>              
