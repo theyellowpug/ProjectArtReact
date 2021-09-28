@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import "../App.css";
 import { getAllProducts } from "../api/ProductApi";
-import { ProductCard } from "../component/product/ProductCard";
+import ProductCard from "../component/product/ProductCard";
 
 
 export const MarketPage = () => {
