@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import "../App.css";
+//import "../Payment.css";
 import { getProductById } from "../api/ProductApi";
 
 export const ProductDetailsPage= () => {

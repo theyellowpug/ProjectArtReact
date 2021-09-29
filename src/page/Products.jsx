@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 
-export default function Termekek() {
+export default function Products() {
     return (
         <Main>
            <ProductCard product={TermekTeszt}/>

@@ -5,7 +5,7 @@ const Margin = styled.div`
     margin-top: 10px;
 `;
 
-export default function Ajanlo() {
+export default function Newsfeed() {
     return (
         <Margin>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus erat vitae purus molestie gravida. Phasellus vitae lectus ac nibh lacinia ullamcorper. Donec porta massa id purus cursus vulputate. Proin a leo ligula. Ut tristique blandit feugiat. Aliquam erat volutpat. Suspendisse vel justo massa. Nam eleifend lectus at metus imperdiet, efficitur dapibus purus sollicitudin.

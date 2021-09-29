@@ -1,12 +1,11 @@
-import './App.css';
 import { CheckoutPage } from './page/CheckoutPage';
 import { MarketPage } from './page/MarketPage';
 import { ProductDetailsPage } from './page/ProductDetailsPage';
 
 import { BrowserRouter, Route } from 'react-router-dom';
 import Header from './component/header/Header';
-import Ajanlo from './page/Ajanlo';
-import Termekek from './page/Termekek';
+import Newsfeed from './page/Newsfeed';
+import Products from './page/Products';
 
 function App() {
   return (
@@ -14,10 +13,10 @@ function App() {
         <Header/>
           <BrowserRouter>
           <Route path='/' exact>
-            <Ajanlo></Ajanlo>
+            <Newsfeed/>
           </Route>
           <Route path='/termekek'>
-            <Termekek></Termekek>
+            <Products/>
           </Route>
         </BrowserRouter>
     </ div>

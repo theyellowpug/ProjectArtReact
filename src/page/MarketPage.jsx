@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import "../App.css";
+//import "../Payment.css";
 import { getAllProducts } from "../api/ProductApi";
 import ProductCard from "../component/product/ProductCard";
 
