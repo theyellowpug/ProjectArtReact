@@ -2,7 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
 
-export const ProductCard = (props) => {
+const ProductCard = (props) => {
 
     const history=useHistory();
 
@@ -24,6 +24,7 @@ export const ProductCard = (props) => {
         </Container>
     )
 }
+export default ProductCard;
 
 const Container = styled.div`
     margin: 3px 3px;

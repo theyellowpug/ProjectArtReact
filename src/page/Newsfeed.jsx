@@ -1,13 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Margin = styled.div`
-    margin-top: 10px;
-`;
+import '../css/pageContent.css';    //use "main" element as page container
 
 export default function Newsfeed() {
     return (
-        <Margin>
+        <main>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus erat vitae purus molestie gravida. Phasellus vitae lectus ac nibh lacinia ullamcorper. Donec porta massa id purus cursus vulputate. Proin a leo ligula. Ut tristique blandit feugiat. Aliquam erat volutpat. Suspendisse vel justo massa. Nam eleifend lectus at metus imperdiet, efficitur dapibus purus sollicitudin.
 
 Ut congue pulvinar lorem, placerat varius tortor molestie in. Nunc facilisis euismod urna, id porttitor arcu mollis tempus. Proin sit amet efficitur erat, sed interdum tellus. Donec vel lorem nibh. Ut vehicula quam vel quam sodales, in rutrum enim ultricies. Vestibulum congue ipsum at libero laoreet, non pulvinar lacus vehicula. Morbi viverra at diam sit amet consectetur. Sed eleifend ac nisi eu varius. Quisque eleifend elit non ipsum dignissim rhoncus. Fusce varius accumsan porttitor. Sed et sapien consectetur, rhoncus quam ut, pulvinar metus. Nam hendrerit lectus sit amet odio fringilla varius.
@@ -79,6 +77,6 @@ Suspendisse vel massa sed ipsum feugiat condimentum. Sed sit amet neque eu metus
 Nulla facilisi. Donec nec rutrum ipsum. Nulla facilisi. Curabitur efficitur turpis sit amet lectus placerat, ac fermentum urna iaculis. Phasellus iaculis dui ipsum, vitae accumsan justo egestas nec. Praesent tellus ligula, commodo eu velit eu, tempus sagittis est. Integer convallis placerat tempus. Fusce arcu purus, rutrum quis tempor nec, tristique ut arcu.
 
 Vestibulum vitae urna accumsan lacus suscipit pulvinar. Ut et mattis turpis. Nulla pulvinar felis ac purus dignissim, quis hendrerit dui laoreet. Nulla sagittis, dolor nec consequat mollis, magna turpis dictum ante, eget euismod leo orci vel augue. Aenean bland
-        </Margin>
+        </main>
     )
 }

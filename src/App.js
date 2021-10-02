@@ -3,10 +3,10 @@ import { MarketPage } from './page/MarketPage';
 import { ProductDetailsPage } from './page/ProductDetailsPage';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
 import { CartPage } from './page/CartPage';
-
 import Header from './component/header/Header';
 import Newsfeed from './page/Newsfeed';
 import Products from './page/Products';
+import { Profile } from './page/Profile';
 
 function App() {
   return (  
@@ -14,11 +14,12 @@ function App() {
       <div className="App">
       <Header/>
         <Route exact path='/' component={Newsfeed}></Route>
-        <Route exact path='/newFeed' component={Newsfeed}></Route>
-        <Route exact path="/products" component={Products}></Route>
-        <Route exact path='/productDetails/:productId' component ={ProductDetailsPage}></Route>  
+        <Route exact path='/hirfolyam' component={Newsfeed}></Route>
+        <Route exact path="/termekek" component={Products}></Route>
+        <Route exact path='/termekInfo/:productId' component ={ProductDetailsPage}></Route>  
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
+        <Route exact path="/alkotoknak" component={Profile}></Route>
       </div>
     </Router>
   );

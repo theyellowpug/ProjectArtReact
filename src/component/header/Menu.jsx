@@ -5,7 +5,7 @@ export default function Menu() {
     return (
         <MenuContainer>
             <ButtonsWrapper>
-            <MenuButton><Link href="/">Ajánló</Link></MenuButton>
+            <MenuButton><Link href="/hirfolyam">Ajánló</Link></MenuButton>
             <MenuButton><Link href="/termekek">Termékek</Link></MenuButton>
             <MenuButton><Link href="/szolgaltatasok">Szolgáltatások</Link></MenuButton>
             <MenuButton><Link href="/alkotok">Alkotók</Link></MenuButton>

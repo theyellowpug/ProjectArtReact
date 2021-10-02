@@ -2,19 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 
+import '../css/pageContent.css';    //use "main" element as page container
+
 export default function Products() {
     return (
-        <Main>
+        <main>
            <ProductCard product={TermekTeszt}/>
-        </Main>
+        </main>
     )
 }
-
-const Main = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 70px;
-`;
 
 const TermekTeszt = {
     name: "Orbán Viktor",
