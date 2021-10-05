@@ -7,7 +7,9 @@ import '../css/pageContent.css';    //use "main" element as page container
 export default function Products() {
     return (
         <main>
-           <ProductCard product={TermekTeszt}/>
+            <FlexContainer>
+                <ProductCard product={TermekTeszt}/>
+            </FlexContainer>
         </main>
     )
 }
@@ -20,3 +22,9 @@ const TermekTeszt = {
     likes: 0,
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Orb%C3%A1n_Viktor_2018.jpg/1200px-Orb%C3%A1n_Viktor_2018.jpg"
 }
+
+const FlexContainer = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+`;
