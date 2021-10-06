@@ -49,7 +49,7 @@ const FlexContainer = styled.div`
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    align-items: center;
+    align-items: stretch;
 `;
 
 const NameAndPics =  styled.div`
