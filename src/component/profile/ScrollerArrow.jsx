@@ -12,5 +12,8 @@ export default function ScrollerArrow() {
 const Placeholder = styled.div`
     height: 10rem;
     width: 5rem;
-    background-color: white;
+    background-color: #7474b9;
+    &:hover{
+        background-color: #e2b767;
+    }
 `;

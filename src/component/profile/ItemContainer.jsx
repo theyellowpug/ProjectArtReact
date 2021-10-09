@@ -21,7 +21,7 @@ const Container = styled.div`
     margin: 20px;
     width: 80vw;
     height: 30vh;
-    background-color: black;
+    background-color: #bdbdbd25;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

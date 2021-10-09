@@ -1,10 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
-export default function Showcase() {
+const Container = styled.div`
+    width: 50vw;
+    height: 40vh;
+    margin-left: 1vw;
+    background-color: #00000030;
+`;
+
+export default function Highlights() {
     return (
-        <div>
+        <Container>
             
-        </div>
+        </Container>
     )
 }

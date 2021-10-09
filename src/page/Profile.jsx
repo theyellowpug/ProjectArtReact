@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import Comments from '../component/Comments';
 import ItemContainer from '../component/profile/ItemContainer';
-import Highlights from '../component/profile/Highlights';
+import NameAndPics from '../component/profile/NameAndPics';
+import Description from '../component/profile/Description';
 
 import '../css/pageContent.css';    //use "main" element as page container
 
@@ -15,21 +16,11 @@ const creator = {
 
 export const Profile = (props) => {
 
-
     return (
         <main>
         <FlexContainer>
-            <NameAndPics>
-                <ProfileIMG src={creator.image}></ProfileIMG>
-                <ProfileName>Chad Doe</ProfileName>
-                <Highlights/>
-                <Follow_Edit>Beágyazott komponens: follow és followers</Follow_Edit>
-            </NameAndPics>
-            <Description>
-                <p>
-                    A leírás jön ide bizony.
-                </p>
-            </Description>
+            <NameAndPics/>
+            <Description/>
             <ProductsAndServices>
                 <ItemContainer/>
                 <ItemContainer/>
@@ -52,32 +43,6 @@ const FlexContainer = styled.div`
     align-items: stretch;
 `;
 
-const NameAndPics =  styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-evenly;
-    align-items: center;
-    order: 0;
-    background-color: blue;
-`;
-    const ProfileIMG = styled.img`
-        order: 0;
-    `;
-    const ProfileName = styled.p`
-        order: 1;
-        align-self: flex-start;
-    `;
-    const Follow_Edit = styled.div`
-        order: 2;
-    `;
-
-const Description = styled.div`
-    order: 1;
-    background-color: red;
-`;
-
 const ProductsAndServices = styled.div`
     display: flex;
     flex-direction: column;
@@ -85,7 +50,6 @@ const ProductsAndServices = styled.div`
     justify-content: space-evenly;
     align-items: center;
     order: 2;
-    background-color: yellow;
 `;
 
 const CommentsContainer = styled.div`
