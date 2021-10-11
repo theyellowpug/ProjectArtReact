@@ -11,7 +11,7 @@ const Container = styled.div`
     
     margin-top: 1vh;
     background-color: #bdbdbd50;
-    border-radius: 30px;
+    border-radius: 15px;
     width: 80vw;
     height: 30ex;
 `;

@@ -28,11 +28,13 @@ export default ProductCard;
 
 const Container = styled.div`
     margin: 3px 3px;
-    padding: 5px 12px;
-    width: 300px;
-    height: 200px;
+    padding: 0.42vh 0.6vw;
+    padding-left: 0.4vw;
+    width: 18vw;
+    height: 21vh;
     background-color: #9ea8b480;
     border-radius: 4px;
+    //box-shadow: 5px 5px 5 1 #83878b80;
 
     display: flex;
     flex-wrap: nowrap;
@@ -40,23 +42,24 @@ const Container = styled.div`
     justify-content: space-evenly;
     align-items: center;
     
-    transition: all 300ms ease;
+    transition: all 200ms ease;
     &:hover{
         background-color: #d1dfed;
         cursor: pointer;
+        height: 22vh;
     }
 `;
 
 //left flex element
 const IMG = styled.img`
-    border-radius: 10px;
-    width: 150px;
-    height: 180px;
+    border-radius: 6px;
+    width: 7.5vw;
+    height: 19vh;
 `;
 //right flex element
 const FlexRowContainer = styled.div`
-    width: 200px;
-    height: 200px;
+    width: 9.5vw;
+    height: 20vh;
     padding-left: 5px;
 
     display: flex;
@@ -66,24 +69,26 @@ const FlexRowContainer = styled.div`
 `;
 
 const Name = styled.div`
-    font-size: 18px;
+    font-size: 1vw;
     font-weight: 600;
 `;
 
 const Creator = styled.div`
-    font-size: 15px;
+    margin-top: -0.5vw;
+    font-size: 0.83vw;
+    color: #63593d;
 `;
 
 const Category = styled.div`
-    font-size: 13px;
+    font-size: 0.6vw;
 `;
 
 const Prize = styled.div`
-    font-size: 20px;
+    font-size: 1vw;
     align-self: flex-end;
 `;
 
 const Likes = styled.div`
-    font-size: 14px;
+    font-size: 0.6vw;
     align-self: flex-end;
 `;

@@ -19,9 +19,11 @@ export default function ItemContainer() {
 
 const Container = styled.div`
     margin: 20px;
-    width: 80vw;
+    padding: 0vh 3vw;
+    width: 70vw;
     height: 30vh;
     background-color: #bdbdbd25;
+    border-radius: 4px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -29,6 +31,7 @@ const Container = styled.div`
 `;
 
 const TermekTeszt = {
+    id: 0,
     name: "Orbán Viktor",
     creator: "Sípos Erzsébet",
     category: "Otthon",

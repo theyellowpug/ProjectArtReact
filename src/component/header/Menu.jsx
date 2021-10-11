@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function Menu() {
     return (
         <MenuContainer>
-            <ButtonsWrapper>
+            <ButtonsWrapper id="headerMenu">
             <MenuButton><Link href="/hirfolyam">Ajánló</Link></MenuButton>
             <MenuButton><Link href="/termekek">Termékek</Link></MenuButton>
             <MenuButton><Link href="/szolgaltatasok">Szolgáltatások</Link></MenuButton>
@@ -17,12 +17,12 @@ export default function Menu() {
 }
 
 const MenuContainer = styled.div`
-    height: 40px;
+    height: 4vh;
     width: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 105px;
+    padding-top: 11vh;
 `;
 
 const ButtonsWrapper = styled.ul`
@@ -47,7 +47,7 @@ const Link = styled.a`
     text-decoration: none;
     color: inherit;
     font-size: inherit;
-    transition: all 200ms ease-in-out;
+    transition: all 165ms ease-in-out;
 
     &:hover {
         font-size: 17px;

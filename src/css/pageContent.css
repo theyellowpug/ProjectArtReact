@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap');
 
 body{
     font-family: 'Manrope', sans-serif;
 }
+
+#headerMenu{
+    font-family: 'Work Sans', sans-serif;
+}
+
 
 main{
     margin: 1.5vh 2vw;

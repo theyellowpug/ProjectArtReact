@@ -1,5 +1,4 @@
 import { CheckoutPage } from './page/CheckoutPage';
-import { MarketPage } from './page/MarketPage';
 import { ProductDetailsPage } from './page/ProductDetailsPage';
 import { BrowserRouter as Router,Route } from 'react-router-dom';
 import { CartPage } from './page/CartPage';

@@ -39,18 +39,17 @@ const headerNight = {
 
 const celestialBody = {
     position: 'absolute',
-    top: '-120px',
-    right: '100px',
-    height: '150px'
+    right: '7vw',
+    height: '10vh'
 }
 
 const HeaderContainer = styled.div`
     width: 100%;
     position: sticky;
     position: -webkit-sticky;
-    top: -70px;
+    top: -7.5vh;
 
-    height: 130px;
+    height: 13.5vh;
     box-shadow: 0 6px 4px #8fa0ba;
     display: flex;
     align-items: center;
@@ -60,8 +59,8 @@ const HeaderContainer = styled.div`
 const TimeAndDateContainer = styled.div`
     position: absolute;
     left: 0;
-    padding-left: 20px;
-    padding-top: 90px;
+    padding-left: 1.7vw;
+    padding-top: 9vh;
 `;
 
 const TimeAndDateText = styled.p`

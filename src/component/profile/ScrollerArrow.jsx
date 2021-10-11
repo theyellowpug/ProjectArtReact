@@ -15,5 +15,6 @@ const Placeholder = styled.div`
     background-color: #7474b9;
     &:hover{
         background-color: #e2b767;
+        cursor: pointer;
     }
 `;

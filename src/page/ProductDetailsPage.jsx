@@ -27,7 +27,7 @@ export const ProductDetailsPage= (props) => {
 
     return (
         isLoaded ? 
-        <div className="App">
+        <div>
             <h1>{productData.name}</h1>
             <p>{productData.price}</p>
             <button onClick={()=>addToCart(productData.id)}>Add to cart</button>
