@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { CartActionCreators } from "../state/CartActions";
 
-export const ProductDetailsPage= (props) => {
+export const ProductDetailsPage = (props) => {
     
     const productId=props.match.params.productId;
     const history = useHistory();

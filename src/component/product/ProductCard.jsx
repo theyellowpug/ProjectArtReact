@@ -8,7 +8,7 @@ const ProductCard = (props) => {
 
     const forwardToDetailsPage = (event) =>{
         event.preventDefault();
-        history.push("/productDetails/"+props.product.id)
+        history.push("/termekInfo/"+props.product.id)
     }
 
     return (
@@ -32,6 +32,8 @@ const Container = styled.div`
     padding-left: 0.4vw;
     width: 18vw;
     height: 21vh;
+    min-width: 250px;
+    min-height: 150px;
     background-color: #9ea8b480;
     border-radius: 4px;
     //box-shadow: 5px 5px 5 1 #83878b80;
@@ -41,6 +43,7 @@ const Container = styled.div`
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    align-self: center;
     
     transition: all 200ms ease;
     &:hover{
@@ -55,11 +58,15 @@ const IMG = styled.img`
     border-radius: 6px;
     width: 7.5vw;
     height: 19vh;
+    min-width: 100px;
+    min-height: 130px;
 `;
 //right flex element
 const FlexRowContainer = styled.div`
     width: 9.5vw;
     height: 20vh;
+    min-width: 100px;
+    min-height: 130px;
     padding-left: 5px;
 
     display: flex;
@@ -69,26 +76,26 @@ const FlexRowContainer = styled.div`
 `;
 
 const Name = styled.div`
-    font-size: 1vw;
+    font-size: 22px;
     font-weight: 600;
 `;
 
 const Creator = styled.div`
     margin-top: -0.5vw;
-    font-size: 0.83vw;
+    font-size: 15px;
     color: #63593d;
 `;
 
 const Category = styled.div`
-    font-size: 0.6vw;
+    font-size: 12px;
 `;
 
 const Prize = styled.div`
-    font-size: 1vw;
+    font-size: 20px;
     align-self: flex-end;
 `;
 
 const Likes = styled.div`
-    font-size: 0.6vw;
+    font-size: 15px;
     align-self: flex-end;
 `;

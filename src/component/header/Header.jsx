@@ -50,6 +50,7 @@ const HeaderContainer = styled.div`
     top: -7.5vh;
 
     height: 13.5vh;
+    min-height: 125px;
     box-shadow: 0 6px 4px #8fa0ba;
     display: flex;
     align-items: center;

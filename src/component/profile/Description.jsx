@@ -1,6 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const Description = (props) => {
+    return (
+        <Container>
+            <Title>Bemutatkozás:</Title>
+            <Text>{props.description}</Text>
+        </Container>
+    )
+}
+
+export default Description;
+
 const Container = styled.div`
     display: flex;
     flex-direction: column;
@@ -19,19 +30,10 @@ const Container = styled.div`
 const Title = styled.div`
     align-self: flex-start;
     font-size: 40px;
-    padding: 0 5vw;
+    margin: -10vh 2vw;
 `;
 
 const Text = styled.div`
     text-align: center;
     font-size: 20px;
 `;
-
-export default function Description() {
-    return (
-        <Container>
-            <Title>Bemutatkozás:</Title>
-            <Text>Leírás</Text>
-        </Container>
-    )
-}
