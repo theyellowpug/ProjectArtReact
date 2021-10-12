@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from "react";
-//import "../Payment.css";
+import styled from "styled-components";
+
 import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
@@ -27,12 +28,29 @@ export const ProductDetailsPage = (props) => {
 
     return (
         isLoaded ? 
-        <div>
+        <main style={flex}>
+        <Container>
             <h1>{productData.name}</h1>
             <p>{productData.price}</p>
             <button onClick={()=>addToCart(productData.id)}>Add to cart</button>
-        </div>
+        </Container>
+        </main>
         :
         <p>Loading</p>              
       );
 }
+
+const flex = {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    alignSelf: 'center'
+}
+
+const Container = styled.div`
+    width: 50vw;
+    height: 50vh;
+    background-color: #0000001d;
+    color: #abb5d6;
+`;
