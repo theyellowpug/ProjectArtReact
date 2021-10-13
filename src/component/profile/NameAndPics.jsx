@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Highlights from './Highlights';
 
@@ -17,11 +18,11 @@ const LeftSection = styled.div`
     align-items: center;
 `;
 
-const ProfilePic = styled.img`
-    align-self: flex-start;
-    height: 40vh;
-    margin-top: 2vh;
-`;
+const ProfilePic = {
+    alignSelf: 'flex-start',
+    height: '40vh',
+    marginTop: '2vh'
+};
 
 const FollowEdit = styled.div`
     background-color: #804949;
@@ -37,7 +38,7 @@ export default function NameAndPics() {
     return (
         <Container>
             <LeftSection>
-                <ProfilePic src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
+                <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
                 <h2>Nikola Tesla</h2>
             </LeftSection>
             <Highlights/>

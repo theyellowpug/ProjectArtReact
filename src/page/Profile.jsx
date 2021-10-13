@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import styled from 'styled-components';
 
-import Comments from '../component/Comments';
+import Comments from '../component/functional/Comments';
 import ItemContainer from '../component/profile/ItemContainer';
 import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';

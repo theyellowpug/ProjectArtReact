@@ -1,6 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ProductCard = (props) => {
 
@@ -13,7 +14,7 @@ const ProductCard = (props) => {
 
     return (
         <Container onClick={forwardToDetailsPage}>
-            <IMG src={props.product.img}></IMG>
+            <LazyLoadImage src={props.product.img} style={IMG} effect="blur"></LazyLoadImage>
             <FlexRowContainer>
                 <Name>{props.product.name}</Name>
                 <Creator>Alkotó: {props.product.creator}</Creator>
@@ -34,9 +35,10 @@ const Container = styled.div`
     height: 21vh;
     min-width: 250px;
     min-height: 150px;
-    background-color: #9ea8b480;
+    background-color: #d3d3d3;
     border-radius: 4px;
-    //box-shadow: 5px 5px 5 1 #83878b80;
+    border: 1px solid #4d4e5080;
+    box-shadow: 3px 3px #00000040;
 
     display: flex;
     flex-wrap: nowrap;
@@ -54,13 +56,13 @@ const Container = styled.div`
 `;
 
 //left flex element
-const IMG = styled.img`
-    border-radius: 6px;
-    width: 7.5vw;
-    height: 19vh;
-    min-width: 100px;
-    min-height: 130px;
-`;
+const IMG = {
+    borderRadius: '6px',
+    width: '7.5vw',
+    height: '19vh',
+    minWidth: '100px',
+    minHeight: '130px'
+};
 //right flex element
 const FlexRowContainer = styled.div`
     width: 9.5vw;
