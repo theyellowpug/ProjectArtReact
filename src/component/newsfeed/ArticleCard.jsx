@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
-export default function ArticleCard() {
+const ArticleCard = (props) => {
     return (
         <Container>
-            <LazyLoadImage style={IMG} src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/OOjs_UI_icon_article-ltr-progressive.svg/1024px-OOjs_UI_icon_article-ltr-progressive.svg.png"/>
+            <LazyLoadImage style={IMG} src={props.article.img}/>
             <Description>
-                <h1>Cim</h1>
-                <p>Leiras</p>
+                <Title>{props.article.title}</Title>
+                <Text>{props.article.text}</Text>
             </Description>
             <RightSection>
                 <h2>Like</h2>
@@ -16,6 +16,7 @@ export default function ArticleCard() {
         </Container>
     )
 }
+export default ArticleCard;
 
 const Container = styled.div`
     margin-top: 5vh;
@@ -29,6 +30,11 @@ const Container = styled.div`
 
     display: flex;
     align-items: center;
+
+    &:hover{
+        background-color: #b0c5ec;
+        cursor: pointer;
+    }
 `;
 
 const Description = styled.div`
@@ -37,6 +43,15 @@ const Description = styled.div`
     height: 20vh;
     color: white;
 `;
+
+    const Title = styled.p`
+        font-size: 24px;
+        color: #ffa;
+        margin: 4px;
+    `;
+    const Text = styled.p`
+        margin: 6px;
+    `;
 
 const RightSection = styled.div`
     background-color: black;
