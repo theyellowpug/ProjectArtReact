@@ -1,17 +1,37 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, {useState,useEffect} from "react";
+import styled from 'styled-components';
+//
+import MessageModal from '../modal/MessageModal';
 
 export default function NotificationBar() {
 
-    function Clicked() {
-        console.log('Notification bar click!');
+    const [messageIsOpen, setMessageIsOpen] = useState(false);
+    const [notifIsOpen, setNotifIsOpen] = useState(false);
+    const [savedIsOpen, setSavedIsOpen] = useState(false);
+
+    function ClickedMessage() {
+        setMessageIsOpen(true);
+    }
+    function ClickedNotif() {
+        setNotifIsOpen(true);
+    }
+    function ClickedSaved() {
+        setSavedIsOpen(true);
+    }
+    function CloseModals() {
+        setMessageIsOpen(false);
+        setNotifIsOpen(false);
+        setSavedIsOpen(false);
     }
 
     return (
         <NotificationContainer>
-            <NotificationButton onClick={Clicked}></NotificationButton>
-            <NotificationButton onClick={Clicked}></NotificationButton>
-            <NotificationButton onClick={Clicked}></NotificationButton>
+            { messageIsOpen ? <MessageModal setClose={CloseModals}/> : null }
+            { notifIsOpen ? <MessageModal setClose={CloseModals}/> : null }
+            { savedIsOpen ? <MessageModal setClose={CloseModals}/> : null }
+            <NotificationButton onClick={ClickedMessage}>Ü</NotificationButton>
+            <NotificationButton onClick={ClickedNotif}>É</NotificationButton>
+            <NotificationButton onClick={ClickedSaved}>M</NotificationButton>
         </NotificationContainer>
     )
 }
