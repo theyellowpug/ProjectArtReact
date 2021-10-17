@@ -13,10 +13,10 @@ export default function NotificationBar() {
         setMessageIsOpen(true);
     }
     function ClickedNotif() {
-        setNotifIsOpen(true);
+        //open notifications
     }
     function ClickedSaved() {
-        setSavedIsOpen(true);
+        //open cart
     }
     function CloseModals() {
         setMessageIsOpen(false);
@@ -26,9 +26,9 @@ export default function NotificationBar() {
 
     return (
         <NotificationContainer>
-            { messageIsOpen ? <MessageModal setClose={CloseModals}/> : null }
-            { notifIsOpen ? <MessageModal setClose={CloseModals}/> : null }
-            { savedIsOpen ? <MessageModal setClose={CloseModals}/> : null }
+            { messageIsOpen ? <MessageModal setClosed={CloseModals}/> : null }
+            { notifIsOpen ? <MessageModal setClosed={CloseModals}/> : null }
+            { savedIsOpen ? <MessageModal setClosed={CloseModals}/> : null }
             <NotificationButton onClick={ClickedMessage}>Ü</NotificationButton>
             <NotificationButton onClick={ClickedNotif}>É</NotificationButton>
             <NotificationButton onClick={ClickedSaved}>M</NotificationButton>

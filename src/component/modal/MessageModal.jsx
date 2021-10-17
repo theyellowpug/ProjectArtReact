@@ -1,11 +1,24 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 
-const MessageModal = (props) => {
-    return (
-        <ModalContainer onClick={props.setClose}>
-            <MessagesContainer>
+import Messages from './Messages';
+import Messenger from './Messenger';
+// DUMMY MESSAGE
+import dummyMessages from './dummyMessages.json';
 
+const MessageModal = (props) => {
+
+    const [messages, setMessages] = useState(dummyMessages);
+    const [openedMessage, setOpenedMessage] = useState();
+    useEffect(() => {
+        //fetch from api
+    },[/* ??? */])
+
+    return (
+        <ModalContainer onClick={props.setClosed}>
+            <MessagesContainer>
+                <Messages messageData={messages}/>
+                <Messenger messageDate={openedMessage}/>
             </MessagesContainer>
         </ModalContainer>
     )
@@ -29,9 +42,13 @@ const ModalContainer = styled.div`
 `;
 
 const MessagesContainer = styled.div`
-    width: 20vw;
-    height: 50vh;
-    background-color: green;
+    width: 42vw;
+    height: 75vh;
+    z-index: 100;
+    background-color: #ffffff20;
+    border-radius: 10px;
 
     display: flex;
+    justify-content: center;
+    align-items: center;
 `;
