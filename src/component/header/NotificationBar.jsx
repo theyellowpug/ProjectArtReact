@@ -1,7 +1,7 @@
 import React, {useState,useEffect} from "react";
 import styled from 'styled-components';
 //
-import MessageModal from '../modal/MessageModal';
+import MessageModal from '../modal/messages/MessageModal';
 
 export default function NotificationBar() {
 

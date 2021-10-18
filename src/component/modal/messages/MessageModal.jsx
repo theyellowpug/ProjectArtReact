@@ -3,19 +3,18 @@ import styled from 'styled-components';
 
 import Messages from './Messages';
 import Messenger from './Messenger';
-// DUMMY MESSAGE
-import dummyMessages from './dummyMessages.json';
 
 const MessageModal = (props) => {
 
-    const [messages, setMessages] = useState(dummyMessages);
+    const [messages, setMessages] = useState();
     const [openedMessage, setOpenedMessage] = useState();
     useEffect(() => {
         //fetch from api
     },[/* ??? */])
 
     return (
-        <ModalContainer onClick={props.setClosed}>
+        <ModalContainer>
+            <CloseButton onClick={props.setClosed}><p>Bezárás</p></CloseButton>
             <MessagesContainer>
                 <Messages messageData={messages}/>
                 <Messenger messageDate={openedMessage}/>
@@ -51,4 +50,22 @@ const MessagesContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+`;
+
+const CloseButton = styled.div`
+    border-radius: 5px;
+    position: relative;
+    height: 2em;
+    width: 5em;
+    background-color: #ff0000d1;
+    box-shadow: 0px 0px 4px 4px #ffffff84;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+        color: white;
+        cursor: pointer;
+    }
 `;

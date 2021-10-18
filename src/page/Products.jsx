@@ -46,7 +46,7 @@ const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-content: space-around;
+    align-content: center;
     justify-content: center;
     gap: 1vw;
     flex-grow: 1;

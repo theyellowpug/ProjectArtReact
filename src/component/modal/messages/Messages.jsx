@@ -14,9 +14,14 @@ const Messages = (props) => {
         <MessagesContainer>
             <h1>Üzenetek</h1>
             <MessageCardContainer>
-                {/*props.messageData.map((message) => (
-                    <MessageCard messageData={message} />
-                ))*/}
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
+                <MessageCard messageData={Dummy}/>
                 <MessageCard messageData={Dummy}/>
                 <MessageCard messageData={Dummy}/>
                 <MessageCard messageData={Dummy}/>
@@ -51,5 +56,4 @@ const MessageCardContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    //justify-content: center;
 `;
