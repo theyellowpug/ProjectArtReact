@@ -19,9 +19,9 @@ export default MessengerCard;
 
 const Container = styled.span`
     margin: 1% 1%;
-    background-color: #6262a1;
+    background-color: #8eafd4;
     border-radius: 10%;
-    box-shadow: 0px 0px 1px 1px #000000;
+    box-shadow: 2px 2px 1px 1px #000000;
     margin-bottom: 20px;
 `;
 
