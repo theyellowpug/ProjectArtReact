@@ -21,7 +21,6 @@ export const ProductDetailsPage = (props) => {
     useEffect(()=>{
         getProductById(productId)
             .then(response=>{
-                console.log(response.data)
                 setProductData(response.data)
             }).then(response2=>setIsLoaded(true))
     },[])

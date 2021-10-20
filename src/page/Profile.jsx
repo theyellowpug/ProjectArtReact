@@ -7,21 +7,26 @@ import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';
 
 import '../css/pageContent.css';    //use "main" element as page container
+import { getProfileByClientId } from "../api/ProfileApi";
 
 export const Profile = (props) => {
 
     const [profileData, setProfileData] = useState();
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded , setIsLoaded] = useState(false);
 
     useEffect(() => {
-        //get profile data from backend
+        getProfileByClientId(props.clientId)
+        .then(response=>{
+            setProfileData(response.data)
+        }).then(response2=>setIsLoaded(true))
     }
     ,[])
 
     return (
+        isLoaded ?
         <main>
         <FlexContainer>
-            <NameAndPics/>
+            <NameAndPics profileData={profileData}/>
             <Description description="leiras"/>
             <ProductsAndServices>
                 <ItemContainer/>
@@ -30,6 +35,8 @@ export const Profile = (props) => {
             <Comments/>
         </FlexContainer>
         </main>
+        :
+        <p>Loading...</p>
     )
 }
 
