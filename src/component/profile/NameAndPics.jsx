@@ -9,7 +9,8 @@ const NameAndPics = (props) => {
         <Container>
             <LeftSection>
                 <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
-                <h2>{props.profileData.name}</h2>
+                <Name>{props.clientName}</Name>
+                <Title>{props.clientTitle}</Title>
             </LeftSection>
             <Highlights/>
             <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
@@ -46,5 +47,14 @@ const FollowEdit = styled.div`
     align-self: flex-start;
     margin-top: 3vh;
     text-align: center;
+`;
+
+const Name = styled.p`
+    font-size: 38px;
+    margin: 0px 0vh;
+`;
+const Title = styled.p`
+    margin-top: 0px;
+    color: #696969;
 `;
 

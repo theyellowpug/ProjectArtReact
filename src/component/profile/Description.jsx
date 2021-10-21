@@ -24,16 +24,18 @@ const Container = styled.div`
     background-color: #bdbdbd50;
     border-radius: 15px;
     width: 80vw;
-    height: 30ex;
+    min-height: 30ex;
 `;
 
 const Title = styled.div`
     align-self: flex-start;
-    font-size: 40px;
+    font-size: 35px;
     margin: -10vh 2vw;
+    color: #5c5c5c;
 `;
 
 const Text = styled.div`
     text-align: center;
     font-size: 20px;
+    margin: 0% 10%;
 `;

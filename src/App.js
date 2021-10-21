@@ -6,6 +6,7 @@ import Header from './component/header/Header';
 import Newsfeed from './page/Newsfeed';
 import Products from './page/Products';
 import { Profile } from './page/Profile';
+import Services from './page/Services';
 
 function App() {
   return (  
@@ -15,6 +16,7 @@ function App() {
         <Route exact path='/' component={Newsfeed}></Route>
         <Route exact path='/hirfolyam' component={Newsfeed}></Route>
         <Route exact path="/termekek" component={Products}></Route>
+        <Route exact path="/szolgaltatasok" component={Services}></Route>
         <Route exact path='/termekInfo/:productId' component ={ProductDetailsPage}></Route>  
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>

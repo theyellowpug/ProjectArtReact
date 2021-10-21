@@ -5,6 +5,7 @@ import Comments from '../component/functional/Comments';
 import ItemContainer from '../component/profile/ItemContainer';
 import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';
+import LoadingIcon from "../component/functional/LoadingIcon";
 
 import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
@@ -26,8 +27,8 @@ export const Profile = (props) => {
         isLoaded ?
         <main>
         <FlexContainer>
-            <NameAndPics profileData={profileData}/>
-            <Description description="leiras"/>
+            <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
+            <Description description={profileData.longDescription}/>
             <ProductsAndServices>
                 <ItemContainer/>
                 <ItemContainer/>
@@ -36,7 +37,7 @@ export const Profile = (props) => {
         </FlexContainer>
         </main>
         :
-        <p>Loading...</p>
+        <LoadingIcon/>
     )
 }
 
