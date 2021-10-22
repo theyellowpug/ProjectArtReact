@@ -9,7 +9,7 @@ const HighlightItem = (props) => {
         ?
         <LazyLoadImage style={ItemStyle} src={props.data.url}/>
         :
-        <span><ReactPlayer maxWidth='300px' style={ItemStyle} url={props.data.url} controls='true' light='true'/></span>
+        <span><ReactPlayer maxWidth='300px' style={ItemStyle} url={props.data.url}/></span>
     );
 
 }
@@ -18,9 +18,9 @@ export default HighlightItem;
 const ItemStyle = {
     marginLeft: '3px',
     marginTop: '3px',
-    maxHeight: '200px',
+    maxHeight: '21vh',
     minWidth: '50px',
-    maxWidth: '300px',
+    maxWidth: '18vw',
     boxShadow: '0px 0px 1px 1px white'
     //objectFit: 'cover',
     //verticalAlign: 'bottom'

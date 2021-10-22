@@ -3,7 +3,7 @@ import { getAllProducts } from "../api/ProductApi";
 import styled from 'styled-components';
 
 import ProductCard from '../component/product/ProductCard';
-import LoadingIcon from "../component/functional/LoadingIcon";
+import LoadingIcon from "../component/multipleUse/LoadingIcon";
 
 import '../css/pageContent.css';    //use "main" element as page container
 
@@ -15,7 +15,6 @@ export default function Products() {
     useEffect(()=>{
         getAllProducts()
             .then(response=>{
-                console.log(response.data)
                 setAllProducts(response.data)
             }).then(response2=>setIsLoaded(true))
     },[])

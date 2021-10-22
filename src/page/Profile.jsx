@@ -1,19 +1,22 @@
 import React, {useState,useEffect} from "react";
 import styled from 'styled-components';
 
-import Comments from '../component/functional/Comments';
-import ItemContainer from '../component/profile/ItemContainer';
+import Comments from '../component/multipleUse/Comments';
+import LoadingIcon from "../component/multipleUse/LoadingIcon";
+import ItemContainer from '../component/multipleUse/ItemContainer';
 import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';
-import LoadingIcon from "../component/functional/LoadingIcon";
 
 import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
+import { getAllByClientId as getAllComments } from '../api/CommentApi';
 
 export const Profile = (props) => {
 
     const [profileData, setProfileData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
+    const [commentData, setCommentData] = useState();
+    const [isCommentsLoaded, setCommentsLoaded] = useState(false);
 
     useEffect(() => {
         getProfileByClientId(props.clientId)
@@ -22,6 +25,12 @@ export const Profile = (props) => {
         }).then(response2=>setIsLoaded(true))
     }
     ,[])
+    useEffect(() => {
+        getAllComments(props.clientId)
+        .then(response => {
+            setCommentData(response.data); console.log(response.data);
+        }).then(response2=>setCommentsLoaded(true))
+    },[])
 
     return (
         isLoaded ?
@@ -33,7 +42,7 @@ export const Profile = (props) => {
                 <ItemContainer/>
                 <ItemContainer/>
             </ProductsAndServices>
-            <Comments/>
+            {isCommentsLoaded ? <Comments data={commentData}/> : <h1 style={commentLoadingStyle}>Kommentek betöltése...</h1>}           
         </FlexContainer>
         </main>
         :
@@ -58,5 +67,11 @@ const ProductsAndServices = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
+
+const commentLoadingStyle = {
+    textAlign: 'center',
+    marginTop: '10vh',
+    marginBottom: '50vh'
+}
 
 
