@@ -28,8 +28,8 @@ export const Profile = (props) => {
     useEffect(() => {
         getAllComments(props.clientId)
         .then(response => {
-            setCommentData(response.data); console.log(response.data);
-        }).then(response2=>setCommentsLoaded(true))
+            setCommentData(response.data);
+        }).then(response2 => setCommentsLoaded(true));
     },[])
 
     return (

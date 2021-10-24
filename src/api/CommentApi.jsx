@@ -11,6 +11,10 @@ const getAllByProductId = async (id) => {
     return await axios.get(URL_PREFIX + "allByProductId?productId=" + id);
 }
 
+const getAllByArticleId = async (id) => {
+    // igen
+}
+
 export{
     getAllByClientId,
     getAllByProductId

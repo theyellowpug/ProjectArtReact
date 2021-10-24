@@ -6,6 +6,7 @@ import CommentCard from "./CommentCard";
 const Comments = (props) => {
     return (
         <Container>
+            <Title>Kommentek</Title>
             {props.data.map(comment=><CommentCard key={comment.id} comment={comment}/>)}
         </Container>
     )
@@ -20,4 +21,8 @@ const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`;
+
+const Title = styled.h1`
+    text-align: center;
 `;

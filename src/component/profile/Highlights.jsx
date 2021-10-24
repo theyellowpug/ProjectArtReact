@@ -43,7 +43,6 @@ const Container = styled.span`
     max-width: 50vw;
     margin-left: 1vw;
     padding-bottom: 5px;
-    background-color: #00000010;
 `;
 
 const ItemList = styled.span`

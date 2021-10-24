@@ -7,6 +7,7 @@ import Newsfeed from './page/Newsfeed';
 import Products from './page/Products';
 import { Profile } from './page/Profile';
 import Services from './page/Services';
+import Creators from './page/Creators';
 
 function App() {
   return (  
@@ -21,6 +22,7 @@ function App() {
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
         <Route exact path="/alkotoknak"><Profile clientId="1"/></Route>
+        <Route exact path="/alkotok" component={Creators}></Route>
       </div>
     </Router>
   );
