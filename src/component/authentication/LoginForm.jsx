@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { login } from "../../api/AuthenticationApi";
 
 export const LoginForm = (props) => {
 
@@ -7,7 +8,12 @@ export const LoginForm = (props) => {
 
   const submitLoginForm = (event) => {
       event.preventDefault();
-      console.log("username:"+username+" password:"+password)
+      let userCredentials={
+        "username": username,
+        "password": password
+      }
+      login(userCredentials).then(response=>{console.log(response.data)})
+      
   }
 
   return(
