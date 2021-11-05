@@ -1,12 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import {LoginForm} from '../component/authentication/LoginForm';
 
 const Margin = styled.div`
     margin-top: 10px;
 `;
 
 export default function Newsfeed() {
-    return (
+    return (<div>
+        <LoginForm/>
+
+    </div>
+        /*
         <Margin>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur luctus erat vitae purus molestie gravida. Phasellus vitae lectus ac nibh lacinia ullamcorper. Donec porta massa id purus cursus vulputate. Proin a leo ligula. Ut tristique blandit feugiat. Aliquam erat volutpat. Suspendisse vel justo massa. Nam eleifend lectus at metus imperdiet, efficitur dapibus purus sollicitudin.
 
@@ -79,6 +84,6 @@ Suspendisse vel massa sed ipsum feugiat condimentum. Sed sit amet neque eu metus
 Nulla facilisi. Donec nec rutrum ipsum. Nulla facilisi. Curabitur efficitur turpis sit amet lectus placerat, ac fermentum urna iaculis. Phasellus iaculis dui ipsum, vitae accumsan justo egestas nec. Praesent tellus ligula, commodo eu velit eu, tempus sagittis est. Integer convallis placerat tempus. Fusce arcu purus, rutrum quis tempor nec, tristique ut arcu.
 
 Vestibulum vitae urna accumsan lacus suscipit pulvinar. Ut et mattis turpis. Nulla pulvinar felis ac purus dignissim, quis hendrerit dui laoreet. Nulla sagittis, dolor nec consequat mollis, magna turpis dictum ante, eget euismod leo orci vel augue. Aenean bland
-        </Margin>
+        </Margin>*/
     )
 }
