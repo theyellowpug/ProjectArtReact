@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { login } from "../../api/AuthenticationApi";
+import { getJwtToken, JwtManager, setJwtToken, token } from "./JwtManager";
 
 export const LoginForm = (props) => {
 
@@ -12,8 +13,9 @@ export const LoginForm = (props) => {
         "username": username,
         "password": password
       }
-      login(userCredentials).then(response=>{console.log(response.data)})
-      
+      login(userCredentials).then(response=>{
+        setJwtToken(response.data.access_token)
+      })
   }
 
   return(
@@ -26,6 +28,8 @@ export const LoginForm = (props) => {
 
           <button onClick={submitLoginForm}>Login</button>
       </form>
+      <button onClick={getJwtToken}>getToken</button>
+
     </div>)
 
 

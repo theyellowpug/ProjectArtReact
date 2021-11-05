@@ -5,7 +5,7 @@ import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux';
-import { CartActionCreators } from "../state/CartActions";
+import { CartActionCreators } from "../state/actions/CartActions";
 
 export const ProductDetailsPage = (props) => {
     
