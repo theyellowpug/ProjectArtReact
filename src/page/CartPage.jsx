@@ -3,7 +3,7 @@ import { useHistory } from "react-router";
 import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux";
 import { bindActionCreators } from 'redux';
-import  {CartActionCreators} from "../state/actions/CartActions";
+import { CartActionCreators}  from "../state/actions/CartActions";
 
 
 export const CartPage = (props) => {
@@ -36,4 +36,3 @@ export const CartPage = (props) => {
             </div>
         ));
 }
-
