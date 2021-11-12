@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 
@@ -8,9 +8,35 @@ import anim_moon from "../../VisualElements/anim_Moon.mp4";
 import NotificationBar from './NotificationBar';    
 import { TimeAndDate } from '../../utilities/TimeAndDate';
 
+import { useSelector, useDispatch } from "react-redux"
+import { bindActionCreators } from 'redux';
+import { JwtTokenActionCreators } from "../../state/actions/JwtTokenActions";
+import { refreshToken } from '../../api/AuthenticationApi';
+
 const time = TimeAndDate();
 
 export default function Header(props) {
+
+    const state = useSelector((state) => state);
+    const dispatch = useDispatch();
+    const { setJwtToken, removeJwtToken , refreshJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
+
+    const refresh = () => {
+        refreshToken()
+            .then(response=>{
+                setJwtToken(response.data.access_token)
+                localStorage.setItem("refresh_token", response.data.refresh_token)
+            }) 
+        setTimeout(() => {
+            console.log("Refresh Token")
+            refresh()
+          }, 3000);
+    }
+
+    useEffect(()=>{
+        refresh()  
+    },[])
+
     return(
         !props.isDay ?
         <HeaderContainer style={headerDay}>
