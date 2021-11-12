@@ -22,8 +22,11 @@ export const refreshJwtToken = () => {
     return (dispatch) => {
         dispatch({
             type: "refreshJwtToken",
-            payload: refreshToken()
-            .then(response=>{setJwtToken(response.data.access_token)})
+            payload: 
+                refreshToken()
+            .then(response=>{
+                setJwtToken(response.data.access_token)             
+            })
         })
     };
  }

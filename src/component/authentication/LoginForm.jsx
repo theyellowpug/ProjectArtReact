@@ -34,5 +34,6 @@ export const LoginForm = (props) => {
           <input onChange={event=>setPassword(event.target.value)} type="password"></input>
           <button onClick={submitLoginForm}>Login</button>
       </form>
+      <div><p>state:{state.jwtToken!="" ? state.jwtToken : ""}</p></div>
     </div>)
 }
