@@ -11,7 +11,7 @@ function App() {
   return (  
     <Router>
       <div className="App">
-      <Header/>
+        <Header/>      
         <Route exact path='/' component={Newsfeed}></Route>
         <Route exact path="/products" component={Products}></Route>
         <Route exact path='/productDetails/:productId' component ={ProductDetailsPage}></Route>  

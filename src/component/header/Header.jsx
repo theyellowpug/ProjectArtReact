@@ -19,7 +19,7 @@ export default function Header(props) {
 
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
-    const { setJwtToken, removeJwtToken , refreshJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
+    const { setJwtToken, removeJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
 
     const refresh = () => {
         refreshToken()
@@ -27,10 +27,10 @@ export default function Header(props) {
                 setJwtToken(response.data.access_token)
                 localStorage.setItem("refresh_token", response.data.refresh_token)
             }) 
+        //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/
         setTimeout(() => {
-            console.log("Refresh Token")
             refresh()
-          }, 3000);
+          }, 5*60*1000); 
     }
 
     useEffect(()=>{

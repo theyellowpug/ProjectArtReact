@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import '../css/pageContent.css';    //use "main" element as page container
 
+
 const TermekTeszt = {
     id: 1,
     name: "Orbán Viktor",
@@ -26,6 +27,7 @@ export default function Products() {
                 console.log(response.data)
                 setAllProducts(response.data)
             }).then(response2=>setIsLoaded(true))
+
     },[])
 
     return (
