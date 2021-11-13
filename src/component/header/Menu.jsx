@@ -1,16 +1,24 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import styled from 'styled-components';
 
 export default function Menu() {
+
+    const history=useHistory()
+
+    const switchSite = (targetSite) =>{
+        history.push(targetSite)
+    }
+
     return (
         <MenuContainer>
             <ButtonsWrapper id="headerMenu">
-            <MenuButton><Link href="/">Ajánló</Link></MenuButton>
-            <MenuButton><Link href="/products">Termékek</Link></MenuButton>
-            <MenuButton><Link href="/services">Szolgáltatások</Link></MenuButton>
-            <MenuButton><Link href="/artists">Alkotók</Link></MenuButton>
-            <MenuButton><Link href="/profile">Profil</Link></MenuButton>
-            <MenuButton><Link href="/statistics">Statisztika</Link></MenuButton>
+                <MenuButton onClick={()=>switchSite("/")}>Ajánló</MenuButton>
+                <MenuButton onClick={()=>switchSite("/products")}>Termékek</MenuButton>
+                <MenuButton onClick={()=>switchSite("/services")}>Szolgáltatások</MenuButton>
+                <MenuButton onClick={()=>switchSite("/artists")}>Alkotók</MenuButton>
+                <MenuButton onClick={()=>switchSite("/profile")}>Profil</MenuButton>
+                <MenuButton onClick={()=>switchSite("/statistics")}>Statisztika</MenuButton>
             </ButtonsWrapper>
         </MenuContainer>
     )
@@ -41,16 +49,14 @@ const MenuButton = styled.li `
     align-items: center;
     justify-content: center;
     list-style: none;
-`;
 
-const Link = styled.a`
+    cursor:pointer;
     text-decoration: none;
-    color: inherit;
-    font-size: inherit;
     transition: all 165ms ease-in-out;
 
     &:hover {
         font-size: 17px;
         color: #fffecf;
     }
+
 `;

@@ -8,7 +8,7 @@ const getAllProducts = async (token) => {
 }
 
 const getProductById = async (id) => {
-    return await axios.get(BASE_URL + URL_PREFIX + id);
+    return await axios.get(BASE_URL + URL_PREFIX + "?id="+id);
 }
 
 export{

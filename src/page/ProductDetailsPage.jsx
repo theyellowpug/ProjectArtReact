@@ -19,16 +19,9 @@ export const ProductDetailsPage = (props) => {
     const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
 
-    const forwardToCheckoutPage = (event) =>{
-        event.preventDefault();
-        history.push("/cart")
-    }
-
     const addAndForwardToCartPage = (id) =>{
-       // forwardToCheckoutPage()
         addToCart(id)
         history.push("/cart")
-
     }
 
     useEffect(()=>{
