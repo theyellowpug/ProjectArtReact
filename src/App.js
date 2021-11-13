@@ -12,7 +12,7 @@ function App() {
   return (  
     <Router>
       <div className="App">
-      <Header/>
+        <Header/>      
         <Route exact path='/' component={Newsfeed}></Route>
         <Route exact path='/newFeed' component={Newsfeed}></Route>
         <Route exact path="/products" component={Products}></Route>

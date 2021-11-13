@@ -8,10 +8,11 @@ export const LoginForm = (props) => {
 
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const { setJwtToken, removeJwtToken , refreshJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
+  const { setJwtToken, removeJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
 
   const submitLoginForm = (event) => {
       event.preventDefault();
@@ -34,6 +35,5 @@ export const LoginForm = (props) => {
           <input onChange={event=>setPassword(event.target.value)} type="password"></input>
           <button onClick={submitLoginForm}>Login</button>
       </form>
-      <div><p>state:{state.jwtToken!="" ? state.jwtToken : ""}</p></div>
     </div>)
 }

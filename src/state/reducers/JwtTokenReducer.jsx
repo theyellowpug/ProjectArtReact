@@ -7,8 +7,6 @@ const JwtTokenReducer = (jwtToken = initialState, action) => {
             return jwtToken===action.payload ? jwtToken : jwtToken=action.payload;
         case "removeJwtToken":
             return jwtToken="";
-        case "refreshJwtToken":
-            return action.payload;
         default:
             return jwtToken;
     }
