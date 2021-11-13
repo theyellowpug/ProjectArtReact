@@ -13,12 +13,11 @@ function App() {
       <div className="App">
       <Header/>
         <Route exact path='/' component={Newsfeed}></Route>
-        <Route exact path='/hirfolyam' component={Newsfeed}></Route>
-        <Route exact path="/termekek" component={Products}></Route>
-        <Route exact path='/termekInfo/:productId' component ={ProductDetailsPage}></Route>  
+        <Route exact path="/products" component={Products}></Route>
+        <Route exact path='/productDetails/:productId' component ={ProductDetailsPage}></Route>  
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
-        <Route exact path="/alkotoknak" component={Profile}></Route>
+        <Route exact path="/profile" component={Profile}></Route>
       </div>
     </Router>
   );

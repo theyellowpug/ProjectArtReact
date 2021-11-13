@@ -5,12 +5,12 @@ export default function Menu() {
     return (
         <MenuContainer>
             <ButtonsWrapper id="headerMenu">
-            <MenuButton><Link href="/hirfolyam">Ajánló</Link></MenuButton>
-            <MenuButton><Link href="/termekek">Termékek</Link></MenuButton>
-            <MenuButton><Link href="/szolgaltatasok">Szolgáltatások</Link></MenuButton>
-            <MenuButton><Link href="/alkotok">Alkotók</Link></MenuButton>
-            <MenuButton><Link href="/alkotoknak">Alkotóknak</Link></MenuButton>
-            <MenuButton><Link href="/statisztika">Statisztika</Link></MenuButton>
+            <MenuButton><Link href="/">Ajánló</Link></MenuButton>
+            <MenuButton><Link href="/products">Termékek</Link></MenuButton>
+            <MenuButton><Link href="/services">Szolgáltatások</Link></MenuButton>
+            <MenuButton><Link href="/artists">Alkotók</Link></MenuButton>
+            <MenuButton><Link href="/profile">Profil</Link></MenuButton>
+            <MenuButton><Link href="/statistics">Statisztika</Link></MenuButton>
             </ButtonsWrapper>
         </MenuContainer>
     )

@@ -18,6 +18,18 @@ export const ProductDetailsPage = (props) => {
     const [productData,setProductData]=useState();
     const [isLoaded,setIsLoaded]=useState(false);
 
+    const forwardToCheckoutPage = (event) =>{
+        event.preventDefault();
+        history.push("/cart")
+    }
+
+    const addAndForwardToCartPage = (id) =>{
+       // forwardToCheckoutPage()
+        addToCart(id)
+        history.push("/cart")
+
+    }
+
     useEffect(()=>{
         getProductById(productId)
             .then(response=>{
@@ -32,7 +44,7 @@ export const ProductDetailsPage = (props) => {
         <Container>
             <h1>{productData.name}</h1>
             <p>{productData.price}</p>
-            <button onClick={()=>addToCart(productData.id)}>Add to cart</button>
+            <button onClick={()=>addAndForwardToCartPage(productData.id)}>Add to cart</button>
         </Container>
         </main>
         :

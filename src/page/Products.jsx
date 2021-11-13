@@ -1,10 +1,19 @@
 import React, {useState,useEffect} from "react";
 import { getAllProducts } from "../api/ProductApi";
 import styled from 'styled-components';
-
 import ProductCard from '../component/product/ProductCard';
-
 import '../css/pageContent.css';    //use "main" element as page container
+
+const TermekTeszt = {
+    id: 1,
+    name: "Orbán Viktor",
+    creator: "Sípos Erzsébet",
+    category: "Otthon",
+    price: 5000,
+    likes: 0,
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Orb%C3%A1n_Viktor_2018.jpg/1200px-Orb%C3%A1n_Viktor_2018.jpg"
+}
+
 
 export default function Products() {
 
@@ -32,16 +41,6 @@ export default function Products() {
     )
 }
 
-const TermekTeszt = {
-    id: 0,
-    name: "Orbán Viktor",
-    creator: "Sípos Erzsébet",
-    category: "Otthon",
-    price: 5000,
-    likes: 0,
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Orb%C3%A1n_Viktor_2018.jpg/1200px-Orb%C3%A1n_Viktor_2018.jpg"
-}
-
 const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
@@ -50,4 +49,10 @@ const FlexContainer = styled.div`
     justify-content: center;
     gap: 1vw;
     flex-grow: 1;
+`;
+
+const Main = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px 70px;
 `;

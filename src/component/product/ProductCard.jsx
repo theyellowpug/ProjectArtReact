@@ -9,7 +9,7 @@ const ProductCard = (props) => {
 
     const forwardToDetailsPage = (event) =>{
         event.preventDefault();
-        history.push("/termekInfo/"+props.product.id)
+        history.push("/productDetails/"+props.product.id)
     }
 
     return (
