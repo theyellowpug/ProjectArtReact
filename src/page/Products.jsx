@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import { getAllProducts } from "../api/ProductApi";
+import { getProductsByProductType } from "../api/ProductApi";
 import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from "../component/multipleUse/LoadingIcon";
@@ -23,11 +23,10 @@ export default function Products() {
     const [isLoaded,setIsLoaded]=useState(false);
 
     useEffect(()=>{
-        getAllProducts()
+        getProductsByProductType("ITEM", 0, 10)
             .then(response=>{
                 setAllProducts(response.data)
             }).then(response2=>setIsLoaded(true))
-
     },[])
 
     return (
