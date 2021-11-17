@@ -1,10 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from "react-router";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ArticleCard = (props) => {
+
+    const history=useHistory();
+
+    const forwardToArticlePage = (event) =>{
+        event.preventDefault();
+        history.push("/cikk")   //ide kell majd az article ID
+    }
+
     return (
-        <Container>
+        <Container onClick={forwardToArticlePage}>
             <LazyLoadImage style={IMG} src={props.article.img}/>
             <Description>
                 <Title>{props.article.title}</Title>

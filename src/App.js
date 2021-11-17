@@ -8,6 +8,8 @@ import Products from './page/Products';
 import { Profile } from './page/Profile';
 import Services from './page/Services';
 import Creators from './page/Creators';
+import ArticlePage from './page/ArticlePage';
+import RegisterPage from './page/RegisterPage';
 
 function App() {
   return (  
@@ -21,8 +23,9 @@ function App() {
         <Route exact path='/termekInfo/:productId' component ={ProductDetailsPage}></Route>  
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
-        <Route exact path="/alkotoknak"><Profile clientId="1"/></Route>
+        <Route exact path="/alkotoknak"  component={RegisterPage}></Route>
         <Route exact path="/alkotok" component={Creators}></Route>
+        <Route exact path="/cikk" component={ArticlePage}></Route>
       </div>
     </Router>
   );
