@@ -35,7 +35,8 @@ const Container = styled.div`
     height: 21vh;
     min-width: 250px;
     min-height: 150px;
-    background: radial-gradient(circle, rgba(221,226,244,1) 0%, rgba(148,186,215,1) 100%);
+    background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(164,183,214,1) 100%); 
+    color: #1d2c45;
 
     border-radius: 4px;
     border: 1px solid #4d4e5080;
@@ -48,11 +49,13 @@ const Container = styled.div`
     align-items: center;
     align-self: center;
     
-    transition: all 200ms ease;
+    transition: all 100ms ease;
     &:hover{
         cursor: pointer;
         margin: 5px 5px;
-        background: radial-gradient(circle, rgba(231,233,240,1) 0%, #bacddb 100%);
+        background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%); 
+        color: #0e1622;
+        box-shadow: 1px 1px 0px 0px black;
     }
 `;
 
@@ -86,7 +89,6 @@ const Name = styled.div`
 const Creator = styled.div`
     margin-top: -0.5vw;
     font-size: 15px;
-    color: #63593d;
 `;
 
 const Category = styled.div`

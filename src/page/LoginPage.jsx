@@ -15,10 +15,10 @@ export default function RegisterPage() {
             <Form onSubmit={submitHandler}> 
                 <table>
                     <tr>
-                        <th style={LeftAlign}>E-mail cím:</th> <th><Input type="email" name="email" id="email" placeholder="pelda@email.com"></Input></th>
+                        <th style={LeftAlign}>E-mail cím:</th> <th><Input type="email" name="email" id="email" placeholder="..."></Input></th>
                     </tr>
                     <tr>
-                        <th style={LeftAlign}>Jelszó:</th> <th><Input type="password" name="password" id="password"></Input></th>
+                        <th style={LeftAlign}>Jelszó:</th> <th><Input type="password" name="password" id="password"  placeholder="..."></Input></th>
                     </tr>
                     <tr><br></br></tr>
                 </table>

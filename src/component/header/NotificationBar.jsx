@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
+
 //
 import MessageModal from '../modal/messages/MessageModal';
 
@@ -9,7 +10,7 @@ export default function NotificationBar() {
     const [messageIsOpen, setMessageIsOpen] = useState(false);
     const [notifIsOpen, setNotifIsOpen] = useState(false);
     const [savedIsOpen, setSavedIsOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const history = useHistory();
 
     const forwardToLoginPage = (event) => {
@@ -30,6 +31,9 @@ export default function NotificationBar() {
     function ClickedSaved() {
         //open cart
     }
+    function logOut(){
+        // log out
+    }
     function CloseModals() {
         setMessageIsOpen(false);
         setNotifIsOpen(false);
@@ -48,9 +52,10 @@ export default function NotificationBar() {
     function returnNotificationBar(){
         return(
             <React.Fragment>
-                <NotificationButton onClick={ClickedMessage}>Ü</NotificationButton>
-                <NotificationButton onClick={ClickedNotif}>É</NotificationButton>
-                <NotificationButton onClick={ClickedSaved}>M</NotificationButton>
+                <NotificationButton onClick={ClickedMessage}>Üzenetek</NotificationButton>
+                <NotificationButton onClick={ClickedNotif}>Értesítések</NotificationButton>
+                <NotificationButton onClick={ClickedSaved}>Mentett</NotificationButton>
+                <NotificationButton onClick={logOut}>Kijelentkezés</NotificationButton>
             </React.Fragment>
         )
     }
@@ -67,8 +72,8 @@ export default function NotificationBar() {
 
 const NotificationContainer = styled.div`
     position: absolute;
-    top: 105px;
-    right: 200px;
+    top: 8vh;
+    right: 6vw;
     //width: 170px;
     height: 40px;
     display: flex;
@@ -76,21 +81,23 @@ const NotificationContainer = styled.div`
 `;
 
 const NotificationButton = styled.div`
+    margin-top: 10px; 
     color: #313131;
     min-width: 30px;
-    height: 30px;
+    height: 24px;
     padding: 1px 3px;
-    background: radial-gradient(circle, rgba(231,233,240,1) 0%, rgba(107,159,199,1) 100%); 
+    background: white;
     border-radius: 6px;
     margin-left: 6px;
     z-index: 2;
     text-align: center;
     box-shadow: 1px 1px #00000070;
 
-    transition: all 200ms ease;
+    transition: all 400ms ease;
     &:hover{
-        background: radial-gradient(circle, rgba(231,233,240,1) 0%, #bacddb 100%);
-        cursor: pointer;
-        height: 32px;
+        background: #5b7db5; 
+        cursor: pointer;      
+        box-shadow: 0px 0px 4px 4px white;
+        color: #ecf0f6
     }
 `;

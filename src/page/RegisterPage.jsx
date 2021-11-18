@@ -30,10 +30,10 @@ export default function RegisterPage() {
                     <th style={LeftAlign}>Születési dátum:</th> <th><Input type="date" name="birthDate" id="birthDate"></Input></th>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Jelszó:</th> <th><Input type="password" name="password" id="password"></Input></th>
+                    <th style={LeftAlign}>Jelszó:</th> <th><Input type="password" placeholder="..." name="password" id="password"></Input></th>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Jelszó újra:</th> <th><Input type="password"></Input></th>
+                    <th style={LeftAlign}>Jelszó újra:</th> <th><Input type="password"  placeholder="..."></Input></th>
                 </tr>
                 </table>  
                 <tr><br></br></tr>

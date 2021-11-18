@@ -39,7 +39,7 @@ const headerNight = {
 
 const celestialBody = {
     position: 'absolute',
-    right: '7vw',
+    left: '14.5vw',
     height: '10vh'
 }
 

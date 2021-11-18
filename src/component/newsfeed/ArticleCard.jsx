@@ -31,7 +31,7 @@ const Container = styled.div`
     margin-top: 5vh;
     width: 70vw;
     height: 30vh;
-    background: radial-gradient(circle, rgba(231,233,240,1) 0%, rgba(107,159,199,1) 100%); 
+    background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(164,183,214,1) 100%);  
     box-shadow: 2px 2px #4b4c4d80;
     border-radius: 8px;
     border: 1px solid #0d0d0e70;
@@ -42,7 +42,7 @@ const Container = styled.div`
 
     &:hover{
         cursor: pointer;
-        background: radial-gradient(circle, rgba(231,233,240,1) 0%, #bacddb 100%);
+        background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%);
     }
 `;
 
