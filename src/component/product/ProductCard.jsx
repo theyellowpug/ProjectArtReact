@@ -35,7 +35,8 @@ const Container = styled.div`
     height: 21vh;
     min-width: 250px;
     min-height: 150px;
-    background-color: #d3d3d3;
+    background: radial-gradient(circle, rgba(221,226,244,1) 0%, rgba(148,186,215,1) 100%);
+
     border-radius: 4px;
     border: 1px solid #4d4e5080;
     box-shadow: 3px 3px #00000040;
@@ -49,9 +50,9 @@ const Container = styled.div`
     
     transition: all 200ms ease;
     &:hover{
-        background-color: #d1dfed;
         cursor: pointer;
-        height: 22vh;
+        margin: 5px 5px;
+        background: radial-gradient(circle, rgba(231,233,240,1) 0%, #bacddb 100%);
     }
 `;
 

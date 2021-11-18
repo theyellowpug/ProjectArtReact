@@ -25,8 +25,8 @@ const Container = styled.div`
     min-height: 80vh;
     margin: auto;
     margin-top: 4vh;
-    background-color: #bda4a4;
-    box-shadow: 2px 2px 6px 6px black;
+    background-color: #e0f0ff65;
+    box-shadow: 2px 2px #00000020;
     border-radius: 4px;
 `;  
 

@@ -31,9 +31,9 @@ const Container = styled.div`
     margin-top: 5vh;
     width: 70vw;
     height: 30vh;
-    background-color: #adb5c4;
-    box-shadow: 5px 5px #4b4c4d80;
-    border-radius: 5px;
+    background: radial-gradient(circle, rgba(231,233,240,1) 0%, rgba(107,159,199,1) 100%); 
+    box-shadow: 2px 2px #4b4c4d80;
+    border-radius: 8px;
     border: 1px solid #0d0d0e70;
     align-self: center;
 
@@ -41,13 +41,15 @@ const Container = styled.div`
     align-items: center;
 
     &:hover{
-        background-color: #b0c5ec;
         cursor: pointer;
+        background: radial-gradient(circle, rgba(231,233,240,1) 0%, #bacddb 100%);
     }
 `;
 
 const Description = styled.div`
-    background-color: black;
+    background-color: rgba(73,111,173,1);
+    padding: 10px 20px;
+    border-radius: 10px;
     width: 45vw;
     height: 20vh;
     color: white;
@@ -63,16 +65,16 @@ const Description = styled.div`
     `;
 
 const RightSection = styled.div`
-    background-color: black;
+    background-color: #9696b9;
     width: 10vw;
     height: 20vh;
     margin-left: 5px;
     color: white;
+    text-align: center;
 `;
 
 const IMG = {
-    height: '26vh',
-    with: '9vw'
+    height: '26vh'
 }
 
 // img | short article | like
