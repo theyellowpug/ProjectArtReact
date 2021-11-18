@@ -14,4 +14,5 @@ Notification selected:
 	background: radial-gradient(circle, rgba(214,195,164,1) 0%, rgba(246,243,236,1) 100%); 
 
 Background:
-	background: linear-gradient(202deg, rgba(254,253,253,1) 31%, rgba(247,245,239,1) 100%); 
+	 background: rgb(254,253,253);
+	background: linear-gradient(202deg, rgba(254,253,253,1) 33%, rgba(250,249,245,1) 100%); 
