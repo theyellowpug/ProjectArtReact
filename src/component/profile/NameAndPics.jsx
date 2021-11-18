@@ -4,6 +4,21 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import Highlights from './Highlights';
 
+const NameAndPics = (props) => {
+    return (
+        <Container>
+            <LeftSection>
+                <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
+                <Name>{props.clientName}</Name>
+                <Title>{props.clientTitle}</Title>
+            </LeftSection>
+            <Highlights/>
+            <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
+        </Container>
+    )
+}
+export default NameAndPics;
+
 const Container = styled.div`
     display: flex;
     align-self: center;
@@ -34,15 +49,12 @@ const FollowEdit = styled.div`
     text-align: center;
 `;
 
-export default function NameAndPics() {
-    return (
-        <Container>
-            <LeftSection>
-                <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
-                <h2>Nikola Tesla</h2>
-            </LeftSection>
-            <Highlights/>
-            <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
-        </Container>
-    )
-}
+const Name = styled.p`
+    font-size: 38px;
+    margin: 0px 0vh;
+`;
+const Title = styled.p`
+    margin-top: 0px;
+    color: #696969;
+`;
+

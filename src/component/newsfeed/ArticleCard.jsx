@@ -1,10 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from "react-router";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const ArticleCard = (props) => {
+
+    const history=useHistory();
+
+    const forwardToArticlePage = (event) =>{
+        event.preventDefault();
+        history.push("/cikk")   //ide kell majd az article ID
+    }
+
     return (
-        <Container>
+        <Container onClick={forwardToArticlePage}>
             <LazyLoadImage style={IMG} src={props.article.img}/>
             <Description>
                 <Title>{props.article.title}</Title>
@@ -22,9 +31,9 @@ const Container = styled.div`
     margin-top: 5vh;
     width: 70vw;
     height: 30vh;
-    background-color: #adb5c4;
-    box-shadow: 5px 5px #4b4c4d80;
-    border-radius: 5px;
+    background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(164,183,214,1) 100%);  
+    box-shadow: 2px 2px #4b4c4d80;
+    border-radius: 8px;
     border: 1px solid #0d0d0e70;
     align-self: center;
 
@@ -32,13 +41,15 @@ const Container = styled.div`
     align-items: center;
 
     &:hover{
-        background-color: #b0c5ec;
         cursor: pointer;
+        background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%);
     }
 `;
 
 const Description = styled.div`
-    background-color: black;
+    background-color: rgba(73,111,173,1);
+    padding: 10px 20px;
+    border-radius: 10px;
     width: 45vw;
     height: 20vh;
     color: white;
@@ -54,16 +65,16 @@ const Description = styled.div`
     `;
 
 const RightSection = styled.div`
-    background-color: black;
+    background-color: #9696b9;
     width: 10vw;
     height: 20vh;
     margin-left: 5px;
     color: white;
+    text-align: center;
 `;
 
 const IMG = {
-    height: '26vh',
-    with: '9vw'
+    height: '26vh'
 }
 
 // img | short article | like

@@ -1,14 +1,19 @@
 import axios from "axios";
-import {BASE_URL} from "./ApiConstants"
+import {BASE_URL} from "./ApiConstants";
 
-const URL_PREFIX="product/"
+const URL_PREFIX="product/";
 
 const getAllProducts = async (token) => {
     return await axios.get(BASE_URL + URL_PREFIX + "all");
 }
 
+const getAllServices = async () => {
+    //
+}
+
+
 const getProductById = async (id) => {
-    return await axios.get(BASE_URL + URL_PREFIX + "?id="+id);
+    return await axios.get(BASE_URL + URL_PREFIX + "?id=" + id);
 }
 
 export{

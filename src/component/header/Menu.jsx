@@ -25,12 +25,12 @@ export default function Menu() {
 }
 
 const MenuContainer = styled.div`
-    height: 4vh;
+    height: 7vh;
     width: 70%;
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: center;
-    padding-top: 11vh;
+    padding-top: 9vh;
 `;
 
 const ButtonsWrapper = styled.ul`
@@ -41,7 +41,7 @@ const ButtonsWrapper = styled.ul`
 `;
 
 const MenuButton = styled.li `
-    height: 38px;
+    height: 60px;
     padding: 0 1.3em;
     color: #d1efff;
     font-weight: 600;
@@ -55,7 +55,6 @@ const MenuButton = styled.li `
     transition: all 165ms ease-in-out;
 
     &:hover {
-        font-size: 17px;
         color: #fffecf;
     }
 

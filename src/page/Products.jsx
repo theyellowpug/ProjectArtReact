@@ -2,6 +2,7 @@ import React, {useState,useEffect} from "react";
 import { getAllProducts } from "../api/ProductApi";
 import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
+import LoadingIcon from "../component/multipleUse/LoadingIcon";
 import '../css/pageContent.css';    //use "main" element as page container
 
 
@@ -24,7 +25,6 @@ export default function Products() {
     useEffect(()=>{
         getAllProducts()
             .then(response=>{
-                console.log(response.data)
                 setAllProducts(response.data)
             }).then(response2=>setIsLoaded(true))
 
@@ -39,7 +39,7 @@ export default function Products() {
             </FlexContainer>
         </main>
         :
-        <p>Loading...</p>
+        <LoadingIcon/>
     )
 }
 
@@ -47,7 +47,7 @@ const FlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-content: space-around;
+    align-content: center;
     justify-content: center;
     gap: 1vw;
     flex-grow: 1;

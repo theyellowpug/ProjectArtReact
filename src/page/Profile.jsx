@@ -1,35 +1,52 @@
 import React, {useState,useEffect} from "react";
 import styled from 'styled-components';
 
-import Comments from '../component/functional/Comments';
-import ItemContainer from '../component/profile/ItemContainer';
+import Comments from '../component/multipleUse/Comments';
+import LoadingIcon from "../component/multipleUse/LoadingIcon";
+import ItemContainer from '../component/multipleUse/ItemContainer';
 import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';
 
 import '../css/pageContent.css';    //use "main" element as page container
+import { getProfileByClientId } from "../api/ProfileApi";
+import { getAllByClientId as getAllComments } from '../api/CommentApi';
 
 export const Profile = (props) => {
 
     const [profileData, setProfileData] = useState();
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [isLoaded , setIsLoaded] = useState(false);
+    const [commentData, setCommentData] = useState();
+    const [isCommentsLoaded, setCommentsLoaded] = useState(false);
 
     useEffect(() => {
-        //get profile data from backend
+        getProfileByClientId(props.clientId)
+        .then(response=>{
+            setProfileData(response.data)
+        }).then(response2=>setIsLoaded(true))
     }
     ,[])
+    useEffect(() => {
+        getAllComments(props.clientId)
+        .then(response => {
+            setCommentData(response.data);
+        }).then(response2 => setCommentsLoaded(true));
+    },[])
 
     return (
+        isLoaded ?
         <main>
         <FlexContainer>
-            <NameAndPics/>
-            <Description description="leiras"/>
+            <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
+            <Description description={profileData.longDescription}/>
             <ProductsAndServices>
                 <ItemContainer/>
                 <ItemContainer/>
             </ProductsAndServices>
-            <Comments/>
+            {isCommentsLoaded ? <Comments data={commentData}/> : <h1 style={commentLoadingStyle}>Kommentek betöltése...</h1>}           
         </FlexContainer>
         </main>
+        :
+        <LoadingIcon/>
     )
 }
 
@@ -50,5 +67,11 @@ const ProductsAndServices = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
+
+const commentLoadingStyle = {
+    textAlign: 'center',
+    marginTop: '10vh',
+    marginBottom: '50vh'
+}
 
 

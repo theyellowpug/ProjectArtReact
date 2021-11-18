@@ -1,0 +1,18 @@
+Card selected:
+	background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%); 
+
+Card font:
+	color: #ecf0f6;
+
+Card Background:
+	background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(164,183,214,1) 100%); 
+
+Notification-background:
+	background: radial-gradient(circle, rgba(230,219,200,1) 0%, rgba(246,243,236,1) 100%); 
+
+Notification selected:
+	background: radial-gradient(circle, rgba(214,195,164,1) 0%, rgba(246,243,236,1) 100%); 
+
+Background:
+	 background: rgb(254,253,253);
+	background: linear-gradient(202deg, rgba(254,253,253,1) 33%, rgba(250,249,245,1) 100%); 
