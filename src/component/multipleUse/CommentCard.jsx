@@ -7,7 +7,7 @@ const CommentCard = (props) => {
         <Container>
             <LazyLoadImage style={IMG} src="https://upload.wikimedia.org/wikipedia/commons/8/87/CNC_Tiberium_Symbol.png"/>
             <TextContainer>
-                <h3>{props.comment.owner.username}</h3>
+                <h3>{props.comment.ownerName}</h3>
                 <p>{props.comment.text}</p>
             </TextContainer>
         </Container>

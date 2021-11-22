@@ -11,25 +11,20 @@ import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 
-export const Profile = (props) => {
+export const Profile = () => {
 
     const [profileData, setProfileData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
-    const [isCommentsLoaded, setCommentsLoaded] = useState(false);
 
     useEffect(() => {
-        getProfileByClientId(props.clientId)
+        getProfileByClientId(1)
         .then(response=>{
             setProfileData(response.data)
-        }).then(response2=>setIsLoaded(true))
-    }
-    ,[])
-    useEffect(() => {
-        getAllComments(props.clientId)
-        .then(response => {
-            setCommentData(response.data);
-        }).then(response2 => setCommentsLoaded(true));
+        }).then(response2=>getAllComments(1)
+            .then(response3 => {
+                setCommentData(response3.data);
+            }).then(response4 => setIsLoaded(true)))
     },[])
 
     return (
@@ -42,7 +37,7 @@ export const Profile = (props) => {
                 <ItemContainer/>
                 <ItemContainer/>
             </ProductsAndServices>
-            {isCommentsLoaded ? <Comments data={commentData}/> : <h1 style={commentLoadingStyle}>Kommentek betöltése...</h1>}           
+            <Comments data={commentData}/>         
         </FlexContainer>
         </main>
         :

@@ -1,12 +1,32 @@
-import React, {useState,useEffect} from "react";
+import React, {useState} from "react";
 import styled from 'styled-components';
 
 export default function RegisterPage() {
 
     const [userData, setUserData] = useState({email: "", forename: "", surname: "", birthDate: Date, password: ""})
 
+    const [email,setEmail]=useState()
+    const [emailAgain,setEmailAgain]=useState()
+    const [surname,setSurename]=useState()
+    const [forename,setForename]=useState()
+    const [birthDate,setBirthDate]=useState()
+    const [password,setPassword]=useState()
+    const [passwordAgain,setPasswordAgain]=useState()
+
+
     const submitHandler = e => {
         e.preventDefault();
+        let registrationData = {
+            email : email,
+            emailAgain : emailAgain,
+            surname : surname,
+            forename : forename,
+            birthDate : birthDate,
+            password : password,
+            passwordAgain : passwordAgain
+
+        }
+        console.log(registrationData)
     }
 
     return (
@@ -15,29 +35,29 @@ export default function RegisterPage() {
             <Form onSubmit={submitHandler}>     
                 <table>           
                 <tr>
-                    <th style={LeftAlign}>E-mail cím:</th> <th><Input type="email" name="email" id="email" placeholder="pelda@email.com"></Input></th>
+                    <td style={LeftAlign}>E-mail cím:</td> <td><Input onChange={event=>setEmail(event.target.value)} type="email" name="email" id="email" placeholder="pelda@email.com"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>E-mail újra:</th> <th><Input type="email" name="emailCheck" id="emailCheck" placeholder="pelda@email.com"></Input></th>
+                    <td style={LeftAlign}>E-mail újra:</td> <td><Input onChange={event=>setEmailAgain(event.target.value)} type="email" name="emailCheck" id="emailCheck" placeholder="pelda@email.com"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Vezetéknév:</th> <th><Input type="text" name="surname" id="surname" placeholder="Pél"></Input></th>
+                    <td style={LeftAlign}>Vezetéknév:</td> <td><Input onChange={event=>setSurename(event.target.value)} type="text" name="surname" id="surname" placeholder="Pél"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Utónév:</th> <th><Input type="text" name="forename" id="forename" placeholder="Dani"></Input></th>
+                    <td style={LeftAlign}>Utónév:</td> <td><Input onChange={event=>setForename(event.target.value)} type="text" name="forename" id="forename" placeholder="Dani"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Születési dátum:</th> <th><Input type="date" name="birthDate" id="birthDate"></Input></th>
+                    <td style={LeftAlign}>Születési dátum:</td> <td><Input onChange={event=>setBirthDate(event.target.value)} type="date" name="birthDate" id="birthDate"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Jelszó:</th> <th><Input type="password" placeholder="..." name="password" id="password"></Input></th>
+                    <td style={LeftAlign}>Jelszó:</td> <td><Input onChange={event=>setPassword(event.target.value)} type="password" placeholder="..." name="password" id="password"></Input></td>
                 </tr>
                 <tr>
-                    <th style={LeftAlign}>Jelszó újra:</th> <th><Input type="password"  placeholder="..."></Input></th>
+                    <td style={LeftAlign}>Jelszó újra:</td> <td><Input onChange={event=>setPasswordAgain(event.target.value)} type="password"  placeholder="..."></Input></td>
                 </tr>
                 </table>  
                 <tr><br></br></tr>
-                <BtnInput type="submit"></BtnInput>
+                <BtnInput onSubmit={submitHandler} type="submit"></BtnInput>
             </Form>
         </Container>
     )

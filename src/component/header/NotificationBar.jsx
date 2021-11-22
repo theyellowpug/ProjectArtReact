@@ -10,16 +10,17 @@ export default function NotificationBar() {
     const [messageIsOpen, setMessageIsOpen] = useState(false);
     const [notifIsOpen, setNotifIsOpen] = useState(false);
     const [savedIsOpen, setSavedIsOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
     const history = useHistory();
 
     const forwardToLoginPage = (event) => {
         event.preventDefault();
-        history.push("/bejelentkezes");
+        history.push("/login");
     }
+    
     const forwardToRegisterPage = (event) => {
         event.preventDefault();
-        history.push("/regisztracio");
+        history.push("/register");
     }
 
     function ClickedMessage() {

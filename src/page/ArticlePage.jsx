@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import Comments from '../component/multipleUse/Comments';
 import LoadingIcon from "../component/multipleUse/LoadingIcon";
-import base64image from '../api/base64image.txt';
 
 const ArticlePage = (props) => {
 

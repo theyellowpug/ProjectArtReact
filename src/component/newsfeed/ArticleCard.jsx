@@ -9,7 +9,7 @@ const ArticleCard = (props) => {
 
     const forwardToArticlePage = (event) =>{
         event.preventDefault();
-        history.push("/cikk")   //ide kell majd az article ID
+        history.push("/article")   //ide kell majd az article ID
     }
 
     return (

@@ -1,7 +1,6 @@
 import React, {useState,useEffect} from "react";
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-
 import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
@@ -32,11 +31,12 @@ export const ProductDetailsPage = (props) => {
         getProductById(productId)
             .then(response=>{
                 setProductData(response.data)
-            }).then(response2=> {getAllComments(productId)
-            .then(response => {
-                console.log(response);
-                setCommentData(response.data);
-            }).then(response3 => setIsLoaded(true))} )
+            }).then(response2=> {
+                getAllComments(productId)
+                .then(response3 => {
+                    console.log(response3);
+                    setCommentData(response3.data);
+                }).then(response4 => setIsLoaded(true))} )
     },[])
 
     return (
@@ -51,7 +51,7 @@ export const ProductDetailsPage = (props) => {
                     <AddToCartButton onClick={()=>addAndForwardToCartPage(productData.id)}>Megveszem!</AddToCartButton>
                 </RightSection>
             </Container>
-            { isCommentsLoaded ? <Comments data={commentData}/> :  <h1 style={commentLoadingStyle}>Kommentek betöltése...</h1>}
+            <Comments data={commentData}/>
             </main>
             :
             <LoadingIcon/>           
