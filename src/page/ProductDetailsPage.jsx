@@ -51,7 +51,7 @@ export const ProductDetailsPage = (props) => {
                     <AddToCartButton onClick={()=>addAndForwardToCartPage(productData.id)}>Megveszem!</AddToCartButton>
                 </RightSection>
             </Container>
-            { isCommentsLoaded ? <Comments data={commentData}/> :  <h1 style={commentLoadingStyle}>Kommentek betöltése...</h1>}
+            <Comments data={commentData}/>
             </main>
             :
             <LoadingIcon/>           
