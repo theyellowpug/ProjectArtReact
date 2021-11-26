@@ -13,24 +13,24 @@ import { getAllByClientId as getAllComments } from '../api/CommentApi';
 
 export const Profile = (props) => {
 
+    const clientId = props.match.params.clientId;
+
     const [profileData, setProfileData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
     const [isCommentsLoaded, setCommentsLoaded] = useState(false);
 
     useEffect(() => {
-        getProfileByClientId(props.clientId)
-        .then(response=>{
-            setProfileData(response.data)
-        }).then(response2=>setIsLoaded(true))
-    }
-    ,[])
-    useEffect(() => {
-        getAllComments(props.clientId)
-        .then(response => {
-            setCommentData(response.data);
-        }).then(response2 => setCommentsLoaded(true));
-    },[])
+        getProfileByClientId(clientId)
+            .then(response=>{
+                setProfileData(response.data);
+                console.log(response.data)
+            }).then(response2 => {getAllComments(clientId)
+                .then(response2 => {
+                    console.log(response2);
+                    setCommentData(response2.data);
+                }).then(response3 => setIsLoaded(true))} )
+        },[])
 
     return (
         isLoaded ?

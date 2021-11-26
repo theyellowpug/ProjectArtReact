@@ -33,9 +33,9 @@ export const ProductDetailsPage = (props) => {
             .then(response=>{
                 setProductData(response.data)
             }).then(response2=> {getAllComments(productId)
-            .then(response => {
-                console.log(response);
-                setCommentData(response.data);
+            .then(response2 => {
+                console.log(response2);
+                setCommentData(response2.data);
             }).then(response3 => setIsLoaded(true))} )
     },[])
 

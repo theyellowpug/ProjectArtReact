@@ -26,7 +26,7 @@ function App() {
         <Route exact path="/services" component={Services}></Route>
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
-        <Route exact path="/profile" component={Profile}></Route>
+        <Route exact path="/profile/:clientId" component={Profile}></Route>
         <Route exact path ="/login" component={LoginPage}></Route>
         <Route exact path ="/register" component={RegisterPage}></Route>
         <Route exact path="/article/:articleId" component={ArticlePage}></Route>

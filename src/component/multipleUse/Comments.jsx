@@ -7,7 +7,7 @@ const Comments = (props) => {
     return (
         <Container>
             <Title>Kommentek</Title>
-            {props.data.map(comment=><CommentCard key={comment.id} comment={comment}/>)}
+            {props.data.map(comment=><CommentCard key={comment.id} commentData={comment}/>)}
         </Container>
     )
 }

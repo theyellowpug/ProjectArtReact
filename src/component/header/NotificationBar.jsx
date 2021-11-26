@@ -10,7 +10,7 @@ export default function NotificationBar() {
     const [messageIsOpen, setMessageIsOpen] = useState(false);
     const [notifIsOpen, setNotifIsOpen] = useState(false);
     const [savedIsOpen, setSavedIsOpen] = useState(false);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const history = useHistory();
 
     const forwardToLoginPage = (event) => {
