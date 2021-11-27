@@ -31,12 +31,11 @@ export const ProductDetailsPage = (props) => {
         getProductById(productId)
             .then(response=>{
                 setProductData(response.data)
-            }).then(response2=> {
-                getAllComments(productId)
-                .then(response3 => {
-                    console.log(response3);
-                    setCommentData(response3.data);
-                }).then(response4 => setIsLoaded(true))} )
+            }).then(response2=> {getAllComments(productId)
+            .then(response2 => {
+                console.log(response2);
+                setCommentData(response2.data);
+            }).then(response3 => setIsLoaded(true))} )
     },[])
 
     return (

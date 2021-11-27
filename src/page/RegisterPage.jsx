@@ -1,8 +1,8 @@
-import React, {useState} from "react";
-import styled from 'styled-components';
+import React, {useState,useEffect} from "react";
+import {H1, LeftAlign, Form, Input, BtnInput, Container} from '../css/FormStyledComponents';
 
 export default function RegisterPage() {
-
+    
     const [userData, setUserData] = useState({email: "", forename: "", surname: "", birthDate: Date, password: ""})
 
     const [email,setEmail]=useState()
@@ -28,7 +28,7 @@ export default function RegisterPage() {
         }
         console.log(registrationData)
     }
-
+    
     return (
         <Container>
             <H1>Regisztráció</H1>
@@ -62,64 +62,3 @@ export default function RegisterPage() {
         </Container>
     )
 }
-
-const H1 = styled.h1`
-    color: #496fad;
-`;
-
-const Container = styled.div`
-    margin: auto;
-    margin-top: 4vh;
-    padding: 5vh 0px;
-    width: 70vw;
-    background-color: #e0f0ff65;
-    border-radius: 4px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-`;
-
-const LeftAlign = {
-    textAlign: "left"
-}
-
-const Form = styled.form`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-`;
-
-const Input = styled.input`
-    padding: 5px 15px;
-    margin: 5px;
-    min-width: 200px;
-    border-radius: 20px;
-    border-color: #496fad;
-    border-style: solid;
-    border-width: 1px;
-    box-shadow: 2px 2px #00000030;
-
-    &:hover{
-        background-color: #a3ad4910;
-    }
-`;
-
-const BtnInput = styled.input`
-    width: 120px;
-    height: 30px;
-
-    background-color: #ffffff;
-    border-radius: 10px;
-    border-style: solid;
-    border-color: #496fad;
-    border-width: 2px;
-    box-shadow: 3px 3px #00000030;
-
-    &:hover{
-        border-color: #ffbb00;
-        cursor: pointer;
-    }
-`;

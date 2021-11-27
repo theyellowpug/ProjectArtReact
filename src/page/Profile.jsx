@@ -11,21 +11,25 @@ import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 
-export const Profile = () => {
+export const Profile = (props) => {
+
+    const clientId = props.match.params.clientId;
 
     const [profileData, setProfileData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
 
     useEffect(() => {
-        getProfileByClientId(1)
-        .then(response=>{
-            setProfileData(response.data)
-        }).then(response2=>getAllComments(1)
-            .then(response3 => {
-                setCommentData(response3.data);
-            }).then(response4 => setIsLoaded(true)))
-    },[])
+        getProfileByClientId(clientId)
+            .then(response=>{
+                setProfileData(response.data);
+                console.log(response.data)
+            }).then(response2 => {getAllComments(clientId)
+                .then(response2 => {
+                    console.log(response2);
+                    setCommentData(response2.data);
+                }).then(response3 => setIsLoaded(true))} )
+        },[])
 
     return (
         isLoaded ?
