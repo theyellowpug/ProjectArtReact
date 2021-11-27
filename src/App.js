@@ -10,7 +10,8 @@ import Services from './page/Services';
 import Creators from './page/Creators';
 import ArticlePage from './page/ArticlePage';
 import RegisterPage from './page/RegisterPage';
-import LoginPage from './page/LoginPage'
+import LoginPage from './page/LoginPage';
+import Upload from './component/product/Upload';
 
 
 function App() {
@@ -25,11 +26,12 @@ function App() {
         <Route exact path="/services" component={Services}></Route>
         <Route exact path="/cart" component={CartPage}></Route>
         <Route exact path="/checkout" component={CheckoutPage}></Route>
-        <Route exact path="/profile" component={Profile}></Route>
+        <Route exact path="/profile/:clientId" component={Profile}></Route>
         <Route exact path ="/login" component={LoginPage}></Route>
         <Route exact path ="/register" component={RegisterPage}></Route>
         <Route exact path="/article/:articleId" component={ArticlePage}></Route>
         <Route exact path="/creators" component={Creators}></Route>
+        <Route exact path="/upload" component={Upload}></Route>
       </div>
     </Router>
   );
