@@ -1,7 +1,11 @@
 import React, {useState} from "react";
+import { useHistory } from "react-router";
 import styled from 'styled-components';
+import { postClient } from "../api/ClientApi";
 
 export default function RegisterPage() {
+
+    const history = useHistory()
 
     const [userData, setUserData] = useState({email: "", forename: "", surname: "", birthDate: Date, password: ""})
 
@@ -27,6 +31,8 @@ export default function RegisterPage() {
 
         }
         console.log(registrationData)
+        postClient(registrationData)
+        history.push("/")
     }
 
     return (

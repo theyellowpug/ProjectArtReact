@@ -1,17 +1,20 @@
 import React, {useState,useEffect} from "react";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
 
-//
 import MessageModal from '../modal/messages/MessageModal';
 
 export default function NotificationBar() {
+
+    const state = useSelector((state) => state);
+
+    const history = useHistory();
 
     const [messageIsOpen, setMessageIsOpen] = useState(false);
     const [notifIsOpen, setNotifIsOpen] = useState(false);
     const [savedIsOpen, setSavedIsOpen] = useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const history = useHistory();
 
     const forwardToLoginPage = (event) => {
         event.preventDefault();
@@ -23,6 +26,11 @@ export default function NotificationBar() {
         history.push("/register");
     }
 
+    const logout = (event) => {
+        event.preventDefault();
+        localStorage.removeItem("refresh_token")
+    }
+
     function ClickedMessage() {
         setMessageIsOpen(true);
     }
@@ -32,14 +40,15 @@ export default function NotificationBar() {
     function ClickedSaved() {
         //open cart
     }
-    function logOut(){
-        // log out
-    }
     function CloseModals() {
         setMessageIsOpen(false);
         setNotifIsOpen(false);
         setSavedIsOpen(false);
     }
+
+    useEffect(()=>{
+        setIsLoggedIn(state.accessToken!=="")
+    },[state])
 
     return (
         <NotificationContainer>
@@ -56,7 +65,7 @@ export default function NotificationBar() {
                 <NotificationButton onClick={ClickedMessage}>Üzenetek</NotificationButton>
                 <NotificationButton onClick={ClickedNotif}>Értesítések</NotificationButton>
                 <NotificationButton onClick={ClickedSaved}>Mentett</NotificationButton>
-                <NotificationButton onClick={logOut}>Kijelentkezés</NotificationButton>
+                <NotificationButton onClick={logout}>Kijelentkezés</NotificationButton>
             </React.Fragment>
         )
     }

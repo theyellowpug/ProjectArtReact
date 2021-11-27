@@ -10,7 +10,7 @@ import { TimeAndDate } from '../../utilities/TimeAndDate';
 
 import { useSelector, useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
-import { JwtTokenActionCreators } from "../../state/actions/JwtTokenActions";
+import { AccessTokenActionCreators } from "../../state/actions/AccessTokenActions";
 import { refreshToken } from '../../api/AuthenticationApi';
 
 const time = TimeAndDate();
@@ -19,12 +19,12 @@ export default function Header(props) {
 
     const state = useSelector((state) => state);
     const dispatch = useDispatch();
-    const { setJwtToken, removeJwtToken} = bindActionCreators( JwtTokenActionCreators, dispatch);
+    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     const refresh = () => {
         refreshToken()
             .then(response=>{
-                setJwtToken(response.data.access_token)
+                setAccessToken(response.data.access_token)
                 localStorage.setItem("refresh_token", response.data.refresh_token)
             }) 
         //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/

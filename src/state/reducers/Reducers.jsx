@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import CartReducer from "./CartReducer";
-import JwtTokenReducer from "./JwtTokenReducer";
+import AccessTokenReducer from "./AccessTokenReducer";
 
 const reducers = combineReducers({
     cart:CartReducer,
-    jwtToken:JwtTokenReducer
+    accessToken:AccessTokenReducer
 })
 
 export default reducers;
