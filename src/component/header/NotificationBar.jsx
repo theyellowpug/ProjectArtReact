@@ -1,13 +1,19 @@
 import React, {useState,useEffect} from "react";
+import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
+import { bindActionCreators } from "redux";
 import styled from 'styled-components';
+import { AccessTokenActionCreators } from "../../state/actions/AccessTokenActions";
 
 import MessageModal from '../modal/messages/MessageModal';
 
 export default function NotificationBar() {
 
     const state = useSelector((state) => state);
+
+    const dispatch = useDispatch();
+    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     const history = useHistory();
 
@@ -28,6 +34,7 @@ export default function NotificationBar() {
 
     const logout = (event) => {
         event.preventDefault();
+        removeAccessToken();
         localStorage.removeItem("refresh_token")
     }
 
