@@ -25,7 +25,7 @@ const Form = styled.form`
 const Input = styled.input`
     padding: 5px 15px;
     min-width: 200px;
-    margin: 5px;
+    margin: -2px 5px;
     border-radius: 20px;
     border-color: #496fad;
     border-style: solid;
@@ -41,6 +41,7 @@ const Input = styled.input`
 const BtnInput = styled.input`
     width: 120px;
     height: 30px;
+    margin-top: 15px;
 
     background-color: #ffffff;
     border-radius: 10px;
@@ -55,7 +56,7 @@ const BtnInput = styled.input`
     }
 `;
 
-// contains the form on the React page with background color
+// contains everything
 const Container = styled.div`
     margin: auto;
     margin-top: 4vh;
@@ -70,11 +71,25 @@ const Container = styled.div`
     align-items: center;
 `;
 
+// contains the form
+const FormContainer = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: baseline;
+`
+// input titles
+const P = styled.p`
+    margin-top: 10px;
+    margin-bottom: 0px;
+`
+
 export{
+    P,
     H1,
-    LeftAlign,
     Form,
     Input,
     BtnInput,
-    Container
+    Container,
+    FormContainer
 }
