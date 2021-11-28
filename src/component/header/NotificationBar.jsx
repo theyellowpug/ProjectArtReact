@@ -36,6 +36,7 @@ export default function NotificationBar() {
         event.preventDefault();
         removeAccessToken();
         localStorage.removeItem("refresh_token")
+        history.push("/");
     }
 
     function ClickedMessage() {

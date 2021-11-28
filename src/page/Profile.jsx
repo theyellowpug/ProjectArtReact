@@ -10,12 +10,14 @@ import Description from '../component/profile/Description';
 import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
+import { getProductsByClientId } from '../api/ProductApi';
 
 export const Profile = (props) => {
 
     const clientId = props.match.params.clientId;
 
     const [profileData, setProfileData] = useState();
+    const [productData, setProductData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
 
@@ -24,9 +26,11 @@ export const Profile = (props) => {
             .then(response=>{
                 setProfileData(response.data);
                 console.log(response.data)
-            }).then(response2 => {getAllComments(clientId)
+            }).then(getProductsByClientId(clientId)
+            .then(responseProducts=>{
+                setProductData(responseProducts.data)
+            })).then(response2 => {getAllComments(clientId)
                 .then(response2 => {
-                    console.log(response2);
                     setCommentData(response2.data);
                 }).then(response3 => setIsLoaded(true))} )
         },[])
@@ -38,8 +42,8 @@ export const Profile = (props) => {
             <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
             <Description description={profileData.longDescription}/>
             <ProductsAndServices>
-                <ItemContainer/>
-                <ItemContainer/>
+                <ItemContainer items={productData}/>
+                <ItemContainer items={productData}/>
             </ProductsAndServices>
             <Comments data={commentData}/>         
         </FlexContainer>

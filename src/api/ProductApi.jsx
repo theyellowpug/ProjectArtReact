@@ -17,6 +17,10 @@ const getProductById = async (id) => {
     return await axios.get(BASE_URL + URL_PREFIX + "?id=" + id);
 }
 
+const getProductsByClientId = async (id) => {
+    return await axios.get(BASE_URL + URL_PREFIX + "allByClientId?clientId=" + id);
+}
+
 // POST
 
 const postProduct = async (clientId, productData) => {
@@ -30,5 +34,6 @@ export{
     getAllProducts,
     getProductById,
     getProductsByProductType,
+    getProductsByClientId,
     postProduct
 }

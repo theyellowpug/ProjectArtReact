@@ -8,10 +8,8 @@ import ScrollerArrow from './ScrollerArrow';
 export default function ItemContainer() {
     return (
         <Container>
-            <ScrollerArrow/>
-            <ProductCard product={TermekTeszt}/>
-            <ProductCard product={TermekTeszt}/>
-            <ProductCard product={TermekTeszt}/>
+            <ScrollerArrow />
+                
             <ScrollerArrow/>
         </Container>
     )
@@ -29,13 +27,3 @@ const Container = styled.div`
     justify-content: space-around;
     align-items: center;
 `;
-
-const TermekTeszt = {
-    id: 0,
-    name: "Orbán Viktor",
-    creator: "Sípos Erzsébet",
-    category: "Otthon",
-    price: 5000,
-    likes: 0,
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Orb%C3%A1n_Viktor_2018.jpg/1200px-Orb%C3%A1n_Viktor_2018.jpg"
-}
