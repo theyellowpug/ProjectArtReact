@@ -4,17 +4,7 @@ import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from "../component/multipleUse/LoadingIcon";
 import '../css/pageContent.css';    //use "main" element as page container
-
-
-const TermekTeszt = {
-    id: 1,
-    name: "Orbán Viktor",
-    creator: "Sípos Erzsébet",
-    category: "Otthon",
-    price: 5000,
-    likes: 0,
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Orb%C3%A1n_Viktor_2018.jpg/1200px-Orb%C3%A1n_Viktor_2018.jpg"
-}
+import SearchBar from "../component/product/SearchBar";
 
 
 export default function Products() {
@@ -32,8 +22,8 @@ export default function Products() {
     return (
         isLoaded ?
         <main>
+            <SearchBar/>
             <FlexContainer>
-                <ProductCard product={TermekTeszt}/>
                 {allProducts.map(product=><ProductCard key={product.id} product={product}/>)}
             </FlexContainer>
         </main>

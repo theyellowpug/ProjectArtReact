@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from '../component/multipleUse/LoadingIcon';
 import '../css/pageContent.css';    //use "main" element as page container
+import SearchBar from "../component/product/SearchBar";
 
 
 export default function Services() {
@@ -22,6 +23,7 @@ export default function Services() {
     return (
         isLoaded ?
         <main>
+            <SearchBar/>
             <FlexContainer>
                 {allServices.map(product=><ProductCard key={product.id} product={product}/>)}
             </FlexContainer>

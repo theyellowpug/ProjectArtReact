@@ -21,6 +21,15 @@ const Form = styled.form`
     justify-content: space-around;
 `;
 
+const Form_row = styled.form`
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    height: 100%;
+`;
+
 // used as text and date inputs
 const Input = styled.input`
     padding: 5px 15px;
@@ -89,6 +98,7 @@ export{
     H1,
     Form,
     Input,
+    Form_row,
     BtnInput,
     Container,
     FormContainer
