@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from '../component/multipleUse/LoadingIcon';
 import '../css/pageContent.css';    //use "main" element as page container
-import SearchBar from "../component/product/SearchBar";
+import SearchBar from "../component/product/ProductSearchBar";
 
 
 export default function Services() {

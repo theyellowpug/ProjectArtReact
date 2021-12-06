@@ -29,7 +29,7 @@ export default function RegisterPage() {
                 console.log(response.data)
                 setAccessToken(response.data.access_token)
                 localStorage.setItem('refresh_token', response.data.refresh_token);
-                history.push("/");  //redirects to landing page after succesful login
+                history.goBack();  //redirects to previous page after succesful login
             }
         )
     }

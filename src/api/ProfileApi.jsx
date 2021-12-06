@@ -7,4 +7,12 @@ const getProfileByClientId = async (clientId) => {
     return await axios.get(URL_PREFIX + "byClientId?clientId=" + clientId);
 }
 
-export { getProfileByClientId }
+const getAllProfiles = async () => {
+    return await axios.get(URL_PREFIX + "all");
+}
+
+export 
+{ 
+    getProfileByClientId,
+    getAllProfiles
+}

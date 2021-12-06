@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import {Form_row, Input, BtnInput} from '../..//css/FormStyledComponents';
+import {Form_row, Input, BtnInput} from '../../css/FormStyledComponents';
 
 export default function SearchBar() {
     return (
@@ -25,8 +25,4 @@ const Container = styled.div`
     margin-bottom: 10px;
     padding: 5px 0px;
     border: 1px solid gray;
-
-    &:hover{
-        background-color: #fdebb8;
-    }
 `;
