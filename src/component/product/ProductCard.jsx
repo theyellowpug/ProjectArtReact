@@ -2,6 +2,7 @@ import React from "react";
 import { useHistory } from "react-router";
 import styled from 'styled-components';
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import { ItemCard } from '../../css/CardStyledComponents';
 
 const ProductCard = (props) => {
 
@@ -13,7 +14,7 @@ const ProductCard = (props) => {
     }
 
     return (
-        <Container onClick={forwardToDetailsPage}>
+        <ItemCard onClick={forwardToDetailsPage}>
             <LazyLoadImage src={props.product.img} style={IMG} effect="blur"></LazyLoadImage>
             <FlexRowContainer>
                 <Name>{props.product.name}</Name>
@@ -22,42 +23,10 @@ const ProductCard = (props) => {
                 <Prize>Ár: {props.product.price}</Prize>
                 <Likes>Kedvelések: {props.product.likes}</Likes>
             </FlexRowContainer>
-        </Container>
+        </ItemCard>
     )
 }
 export default ProductCard;
-
-const Container = styled.div`
-    margin: 3px 3px;
-    padding: 0.42vh 0.6vw;
-    padding-left: 0.4vw;
-    width: 18vw;
-    height: 21vh;
-    min-width: 250px;
-    min-height: 150px;
-    background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(164,183,214,1) 100%); 
-    color: #1d2c45;
-
-    border-radius: 4px;
-    border: 1px solid #4d4e5080;
-    box-shadow: 3px 3px #00000040;
-
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
-    align-self: center;
-    
-    transition: all 100ms ease;
-    &:hover{
-        cursor: pointer;
-        margin: 5px 5px;
-        background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%); 
-        color: #0e1622;
-        box-shadow: 1px 1px 0px 0px black;
-    }
-`;
 
 //left flex element
 const IMG = {

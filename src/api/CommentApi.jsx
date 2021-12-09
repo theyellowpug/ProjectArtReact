@@ -12,10 +12,11 @@ const getAllByProductId = async (id) => {
 }
 
 const getAllByArticleId = async (id) => {
-    // igen
+    return "ARTICLE COMMENNT: NOT IMPLEMENTED";
 }
 
 export{
     getAllByClientId,
-    getAllByProductId
+    getAllByProductId,
+    getAllByArticleId
 }
