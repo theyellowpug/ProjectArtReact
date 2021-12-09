@@ -16,4 +16,19 @@ body{
 
 main{
     margin: 2.5vh 2vw;
+    animation: transitionOnLoad 1s;
+}
+
+.scaleIn{
+    animation: transitionOnLoad 0.5s;
+}
+
+@keyframes transitionOnLoad {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 100;
+    }
 }

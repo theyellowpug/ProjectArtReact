@@ -6,7 +6,9 @@ import Icon from '../../VisualElements/loadingIcon.png';
 
 export default function LoadingIcon() {
     return (
-        <IMG src={Icon} className='rotate'/>
+        <div className='scaleIn'>
+            <IMG src={Icon} className='rotate'/>
+        </div>
     )
 }
 

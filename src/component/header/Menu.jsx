@@ -17,7 +17,7 @@ export default function Menu() {
                 <MenuButton onClick={()=>switchSite("/products")}>Termékek</MenuButton>
                 <MenuButton onClick={()=>switchSite("/services")}>Szolgáltatások</MenuButton>
                 <MenuButton onClick={()=>switchSite("/creators")}>Alkotók</MenuButton>
-                <MenuButton onClick={()=>switchSite("/profile")}>Profil</MenuButton>
+                <MenuButton onClick={()=>switchSite("/creatorHQ")}>Profil</MenuButton>
                 <MenuButton onClick={()=>switchSite("/statistics")}>Statisztika</MenuButton>
             </ButtonsWrapper>
         </MenuContainer>

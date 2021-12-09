@@ -35,19 +35,21 @@ export default function RegisterPage() {
     }
     
     return(
-        <Container>
-            <H1>Bejelentkezés</H1>
-            <Form onSubmit={submitHandler}> 
-                <FormContainer>
-                    <div>
-                        <P>E-mail cím:</P> <P><Input ref={emailInputRef} type="email" name="email" id="email" placeholder="..."></Input></P>
-                    </div>
-                    <div>
-                        <P>Jelszó:</P> <P><Input ref={passwordInputRef} type="password" name="password" id="password"  placeholder="..."></Input></P>
-                    </div>
-                </FormContainer>
-                <BtnInput type="submit"></BtnInput>
-            </Form>
-        </Container>
+        <main>
+            <Container>
+                <H1>Bejelentkezés</H1>
+                <Form onSubmit={submitHandler}> 
+                    <FormContainer>
+                        <div>
+                            <P>E-mail cím:</P> <P><Input ref={emailInputRef} type="email" name="email" id="email" placeholder="..."></Input></P>
+                        </div>
+                        <div>
+                            <P>Jelszó:</P> <P><Input ref={passwordInputRef} type="password" name="password" id="password"  placeholder="..."></Input></P>
+                        </div>
+                    </FormContainer>
+                    <BtnInput type="submit"></BtnInput>
+                </Form>
+            </Container>
+        </main>
     )
 }

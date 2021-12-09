@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 //import "../Payment.css";
 import { getAllProducts } from "../api/ProductApi";
+import LoadingIcon from "../component/multipleUse/LoadingIcon";
 import { ProductCard } from "../component/product/ProductCard";
 
 
@@ -20,10 +21,12 @@ export const MarketPage = () => {
 
     return (
         isLoaded ? 
-        <div className="App">
-            {allProducts.map(product=><ProductCard key={product.id} product={product}/>)}
-        </div>
+        <main>
+            <div className="App">
+                {allProducts.map(product=><ProductCard key={product.id} product={product}/>)}
+            </div>
+        </main>
         :
-        <p>Loading</p>              
+        <LoadingIcon/>            
       );
 }

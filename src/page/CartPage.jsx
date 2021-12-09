@@ -20,19 +20,19 @@ export const CartPage = (props) => {
     }
 
     return (
-        state.cart.length === 0 ? (
-            <div>
-                <h1>Cart is empty</h1>
-            </div>
-        ) 
-        : 
-        (
-            <div className="App">
-                <p>Cart Placeholder</p>
-                <button onClick={forwardToCheckoutPage}>Checkout</button>
-                <p>Cart elements:</p>
-                {state.cart.map(productId=><ul key={productId}>{productId}</ul>)}
-                <button onClick={() => addToCart(1)}>Add to cart</button>
-            </div>
-        ));
+            state.cart.length === 0 ? (
+                <div>
+                    <h1>Cart is empty</h1>
+                </div>
+            ) 
+            : 
+            (
+                <div className="App">
+                    <p>Cart Placeholder</p>
+                    <button onClick={forwardToCheckoutPage}>Checkout</button>
+                    <p>Cart elements:</p>
+                    {state.cart.map(productId=><ul key={productId}>{productId}</ul>)}
+                    <button onClick={() => addToCart(1)}>Add to cart</button>
+                </div>
+            ))
 }

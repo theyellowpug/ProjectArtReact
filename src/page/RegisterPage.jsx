@@ -35,6 +35,7 @@ export default function RegisterPage() {
     }
     
     return (
+        <main>
         <Container>
             <H1>Regisztráció</H1>
             <Form onSubmit={submitHandler}>     
@@ -64,5 +65,6 @@ export default function RegisterPage() {
                 <BtnInput onSubmit={submitHandler} type="submit"></BtnInput>
             </Form>
         </Container>
+        </main>
     )
 }

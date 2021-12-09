@@ -12,11 +12,13 @@ const promise = loadStripe("pk_test_51JUq7hLJBL520A9GMvJ8ado7GfRrJfhO7utmB4mcn0c
 
 export const CheckoutPage = (props) => {
     return (
-        <div className="App">
-          <Elements stripe={promise}>
-            <CheckoutForm cart={props.cart}/>
-          </Elements>
-        </div>
+      <main>
+          <div className="App">
+            <Elements stripe={promise}>
+              <CheckoutForm cart={props.cart}/>
+            </Elements>
+          </div>
+        </main>
       );
 }
 

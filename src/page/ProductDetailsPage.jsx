@@ -41,16 +41,16 @@ export const ProductDetailsPage = (props) => {
     return (
             isLoaded ? 
             <main>
-            <Container>
-                <ProductImage src="https://thepaintsesh.com/wp-content/uploads/2019/01/EnchantedForrest-800x800.jpg"/>
-                <RightSection>  
-                    <ProductName>{productData.name}</ProductName>
-                    <ProductDescription>{productData.description}</ProductDescription>
-                    <ProductPrice>Ár: {productData.price}.- Ft</ProductPrice>
-                    <AddToCartButton onClick={()=>addAndForwardToCartPage(productData.id)}>Megveszem!</AddToCartButton>
-                </RightSection>
-            </Container>
-            <Comments data={commentData}/>
+                <Container>
+                    <ProductImage src="https://thepaintsesh.com/wp-content/uploads/2019/01/EnchantedForrest-800x800.jpg"/>
+                    <RightSection>  
+                        <ProductName>{productData.name}</ProductName>
+                        <ProductDescription>{productData.description}</ProductDescription>
+                        <ProductPrice>Ár: {productData.price}.- Ft</ProductPrice>
+                        <AddToCartButton onClick={()=>addAndForwardToCartPage(productData.id)}>Megveszem!</AddToCartButton>
+                    </RightSection>
+                </Container>
+                <Comments data={commentData}/>
             </main>
             :
             <LoadingIcon/>           

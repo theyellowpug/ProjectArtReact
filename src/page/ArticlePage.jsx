@@ -12,9 +12,11 @@ const ArticlePage = (props) => {
     const [isLoaded , setIsLoaded] = useState(false);
 
     return (
-        <Container>
-            
-        </Container>
+        <main>
+            <Container>
+                
+            </Container>
+        </main>
     )
 }
 export default ArticlePage;
