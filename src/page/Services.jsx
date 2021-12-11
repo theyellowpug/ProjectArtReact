@@ -5,6 +5,7 @@ import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from '../component/multipleUse/LoadingIcon';
 import '../css/pageContent.css';    //use "main" element as page container
 import SearchBar from "../component/product/ProductSearchBar";
+import { Card_FlexContainer } from '../css/CardStyledComponents';
 
 
 export default function Services() {
@@ -24,27 +25,11 @@ export default function Services() {
         isLoaded ?
         <main>
             <SearchBar/>
-            <FlexContainer>
+            <Card_FlexContainer>
                 {allServices.map(product=><ProductCard key={product.id} product={product}/>)}
-            </FlexContainer>
+            </Card_FlexContainer>
         </main>
         :
         <LoadingIcon/>
     )
 }
-
-const FlexContainer = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-content: space-around;
-    justify-content: center;
-    gap: 1vw;
-    flex-grow: 1;
-`;
-
-const Main = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 70px;
-`;

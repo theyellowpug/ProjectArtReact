@@ -30,7 +30,7 @@ const MenuContainer = styled.div`
     display: flex;
     align-items: baseline;
     justify-content: center;
-    padding-top: 9vh;
+    padding-top: 12vh;
 `;
 
 const ButtonsWrapper = styled.ul`

@@ -32,9 +32,3 @@ export default function Products() {
         <LoadingIcon/>
     )
 }
-
-const Main = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px 70px;
-`;
