@@ -18,6 +18,7 @@ export const ProductDetailsPage = (props) => {
     const dispatch = useDispatch();    
     const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
 
+
     const [productData,setProductData]=useState();
     const [commentData, setCommentData] = useState();
     const [isLoaded,setIsLoaded]=useState(false);
