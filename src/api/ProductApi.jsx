@@ -13,12 +13,12 @@ const getProductsByProductType = async (productType, numberOfPages, numberOfProd
     return await axios.get(BASE_URL + URL_PREFIX + "byProductType?productType="+productType+"&numberOfPages="+numberOfPages+"&numberOfProducts="+numberOfProducts);
 }
 
-const getProductById = async (id) => {
-    return await axios.get(BASE_URL + URL_PREFIX + "?id=" + id);
+const getProductById = async (clientId) => {
+    return await axios.get(BASE_URL + URL_PREFIX + "?id=" + clientId);
 }
 
-const getProductsByClientId = async (id) => {
-    return await axios.get(BASE_URL + URL_PREFIX + "allByClientId?clientId=" + id);
+const getProductsByClientId = async (clientId) => {
+    return await axios.get(BASE_URL + URL_PREFIX + "allByClientId?clientId=" + clientId);
 }
 
 // POST

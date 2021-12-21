@@ -8,7 +8,7 @@ export default function CreatorCard(props) {
     const history = useHistory();
 
     const forwardToProfile = (event) => {
-        history.push("/profile/" + props.profile.id);
+        history.push("/profile/" + props.profile.clientId);
     }
 
     return (

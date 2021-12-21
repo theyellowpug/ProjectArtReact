@@ -11,8 +11,13 @@ const getAllProfiles = async () => {
     return await axios.get(URL_PREFIX + "all");
 }
 
+const getProfileCards = async (numberOfPages,numberOfCards) => {
+    return await axios.get(URL_PREFIX + "profileCard?numberOfPages="+numberOfPages+"&numberOfProfiles="+numberOfCards);
+}
+
 export 
 { 
     getProfileByClientId,
-    getAllProfiles
+    getAllProfiles,
+    getProfileCards
 }

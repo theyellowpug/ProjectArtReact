@@ -9,7 +9,7 @@ const HighlightItem = (props) => {
         ?
         <LazyLoadImage style={ItemStyle} src={props.data.url}/>
         :
-        <span><ReactPlayer maxWidth='300px' style={ItemStyle} url={props.data.url}/></span>
+        <span><ReactPlayer style={ItemStyle} url={props.data.url}/></span>
     );
 
 }

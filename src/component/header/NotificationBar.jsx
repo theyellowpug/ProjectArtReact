@@ -40,7 +40,7 @@ export default function NotificationBar() {
     }
 
     function ClickedMessage() {
-        setMessageIsOpen(true);
+        //setMessageIsOpen(true);
     }
     function ClickedNotif() {
         //open notifications
