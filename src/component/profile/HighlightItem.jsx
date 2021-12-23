@@ -1,11 +1,11 @@
 import React from 'react';
-import styled from 'styled-components';
+//import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import ReactPlayer from 'react-player/lazy';
 
 const HighlightItem = (props) => {
     return (
-        props.data.video == 'false' 
+        props.data.video === 'false' 
         ?
         <LazyLoadImage style={ItemStyle} src={props.data.url}/>
         :

@@ -13,7 +13,7 @@ export default function NotificationBar() {
     const state = useSelector((state) => state);
 
     const dispatch = useDispatch();
-    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
+    const {/* setAccessToken,*/ removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     const history = useHistory();
 

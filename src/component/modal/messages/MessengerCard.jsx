@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MessengerCard = (props) => {
-    if(props.messageData.recieved == 'true')
+    if(props.messageData.recieved === 'true')
         return (
             <Container style={recievedStyle}>
                 <MessageText>{props.messageData.text}</MessageText>

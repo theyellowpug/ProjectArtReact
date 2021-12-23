@@ -17,24 +17,23 @@ const time = TimeAndDate();
 
 export default function Header(props) {
 
-    const state = useSelector((state) => state);
+    //const state = useSelector((state) => state);
     const dispatch = useDispatch();
-    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
-
-    const refresh = () => {
-        refreshToken()
-            .then(response=>{
-                setAccessToken(response.data.access_token)
-                localStorage.setItem("refresh_token", response.data.refresh_token)
-            }) 
-        //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/
-        setTimeout(() => {
-            refresh()
-          }, 5*60*1000); 
-    }
+    const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     useEffect(()=>{
-        refresh()  
+        const refresh = () => {
+            refreshToken()
+                .then(response=>{
+                    setAccessToken(response.data.access_token)
+                    localStorage.setItem("refresh_token", response.data.refresh_token)
+                }) 
+            //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/
+            setTimeout(() => {
+                refresh()
+              }, 5*60*1000); 
+        };
+        refresh();
     },[])
 
     return(

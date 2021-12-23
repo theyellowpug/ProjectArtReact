@@ -5,19 +5,19 @@ import Messages from './Messages';
 import Messenger from './Messenger';
 
 const MessageModal = (props) => {
-
+/*
     const [messages, setMessages] = useState();
     const [openedMessage, setOpenedMessage] = useState();
     useEffect(() => {
         //fetch from api
-    },[/* ??? */])
-
+    },[ ??? ])
+*/
     return (
         <ModalContainer>
             <CloseButton onClick={props.setClosed}><p>Bezárás</p></CloseButton>
             <MessagesContainer>
-                <Messages messageData={messages}/>
-                <Messenger messageDate={openedMessage}/>
+                <Messages /*messageData={messages}*//>
+                <Messenger /*messageDate={openedMessage}*//>
             </MessagesContainer>
         </ModalContainer>
     )

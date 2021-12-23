@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
-import styled from 'styled-components';
-import { getAllProfiles, getProfileCards } from '../api/ProfileApi';
+import { getProfileCards } from '../api/ProfileApi';
 import LoadingIcon from '../component/multipleUse/LoadingIcon';
-import { Card_FlexContainer } from '../css/CardStyledComponents';
+import { CardFlexContainer } from '../css/CardStyledComponents';
 import CreatorCard from '../component/creators/CreatorCard';
 
 export default function Creators() {
@@ -23,9 +22,9 @@ export default function Creators() {
     return (
         isLoaded ?
         <main>
-            <Card_FlexContainer>
+            <CardFlexContainer>
                 {profilesData.map(profile=><CreatorCard key={profile.id} profile={profile}/>)}
-            </Card_FlexContainer>
+            </CardFlexContainer>
         </main>
         :
         <LoadingIcon/>

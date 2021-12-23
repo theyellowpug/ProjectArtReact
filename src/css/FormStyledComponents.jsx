@@ -21,7 +21,7 @@ const Form = styled.form`
     justify-content: space-around;
 `;
 
-const Form_row = styled.form`
+const FormRow = styled.form`
     display: flex;
     flex-wrap: nowrap;
     justify-content: flex-start;
@@ -98,8 +98,9 @@ export{
     H1,
     Form,
     Input,
-    Form_row,
+    FormRow,
     BtnInput,
     Container,
+    LeftAlign,
     FormContainer
 }

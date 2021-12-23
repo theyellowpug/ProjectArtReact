@@ -14,7 +14,7 @@ import { getProductsByClientId } from '../api/ProductApi';
 
 export const Profile = (props) => {
 
-    const clientId = props.match.params.clientId;
+    //const clientId = props.match.params.clientId;     cannot use in useEffect in deployment
 
     const [profileData, setProfileData] = useState();
     const [productData, setProductData] = useState();
@@ -22,14 +22,14 @@ export const Profile = (props) => {
     const [commentData, setCommentData] = useState();
 
     useEffect(() => {
-        getProfileByClientId(clientId)
+        getProfileByClientId(props.match.params.clientId)
             .then(response=>{
                 setProfileData(response.data);
                 console.log(response.data)
-            }).then(getProductsByClientId(clientId)
+            }).then(getProductsByClientId(props.match.params.clientId)
             .then(responseProducts=>{
                 setProductData(responseProducts.data)
-            })).then(response2 => {getAllComments(clientId)
+            })).then(response2 => {getAllComments(props.match.params.clientId)
                 .then(response2 => {
                     setCommentData(response2.data);
                 }).then(response3 => setIsLoaded(true))} )
@@ -70,11 +70,10 @@ const ProductsAndServices = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
-
+/*
 const commentLoadingStyle = {
     textAlign: 'center',
     marginTop: '10vh',
     marginBottom: '50vh'
 }
-
-
+*/

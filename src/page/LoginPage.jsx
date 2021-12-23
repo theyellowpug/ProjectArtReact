@@ -12,7 +12,7 @@ export default function RegisterPage() {
     const history = useHistory();
 
     const dispatch = useDispatch();
-    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
+    const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     const emailInputRef = useRef()
     const passwordInputRef = useRef()

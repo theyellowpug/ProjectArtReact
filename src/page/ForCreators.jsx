@@ -1,9 +1,8 @@
-import React, {useState, useEffect} from 'react';
-import styled from 'styled-components';
+import React, {useState} from 'react';
 
 export default function ForCreators() {
 
-    const [isLoggedIn, LoggedIn] = useState(false);
+    const [isLoggedIn, /*setLoggedIn*/] = useState(false);
 
     return(
         isLoggedIn ? 

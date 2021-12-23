@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ProductCard from '../product/ProductCard';
+//import ProductCard from '../product/ProductCard';
 import ScrollerArrow from './ScrollerArrow';
 
 //uses same card components as on market pages

@@ -1,16 +1,16 @@
 import React, {useState,useEffect} from "react";
 import styled from 'styled-components';
-import {Form_row, Input, BtnInput} from '../../css/FormStyledComponents';
+import {FormRow, Input} from '../../css/FormStyledComponents';
 import TagBox from './TagBox';
 import LoadingDots from "../multipleUse/LoadingDots";
 
-import {getAllTags, getByNameStartsWith} from '../../api/TagAPI';
+import {getAllTags} from '../../api/TagAPI';
 
 export default function SearchBar() {
 
     const [tags, setTags] = useState();
-    const [isLoaded, setIsLoaded] = useState();
-    const [selectedTags, setSelectedTags] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+    //const [selectedTags, setSelectedTags] = useState([]);
 
     useEffect(() => {
         getAllTags().then(response => {
@@ -20,13 +20,13 @@ export default function SearchBar() {
 
     return (
         <Container>
-            <Form_row>
+            <FormRow>
                 <P>Név:</P>
                 <Input type="text" placeholder='Keresés terméknév alapján'></Input>
                 <P>Kategória:</P>
                 <input type="text" size="15" maxLength="15" placeholder='Kategória keresése'></input>
                 {isLoaded ? <TagBox tags={tags}/> : <React.Fragment><P/><LoadingDots/></React.Fragment> }
-            </Form_row>
+            </FormRow>
         </Container>
     )
 }

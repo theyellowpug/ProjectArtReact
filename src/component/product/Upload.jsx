@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-import {H1, LeftAlign, Form, Input, BtnInput, Container} from '../../css/FormStyledComponents';
+import {H1, Form, Input, BtnInput, Container} from '../../css/FormStyledComponents';
 import { postProduct } from '../../api/ProductApi';
 
 export default function Upload() {
