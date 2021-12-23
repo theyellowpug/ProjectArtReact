@@ -8,7 +8,7 @@ import anim_moon from "../../VisualElements/anim_Moon.mp4";
 import NotificationBar from './NotificationBar';    
 import { TimeAndDate } from '../../utilities/TimeAndDate';
 
-import { useSelector, useDispatch } from "react-redux"
+import { /*useSelector, */useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
 import { AccessTokenActionCreators } from "../../state/actions/AccessTokenActions";
 import { refreshToken } from '../../api/AuthenticationApi';
@@ -21,20 +21,21 @@ export default function Header(props) {
     const dispatch = useDispatch();
     const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
+    const refresh = () => {
+        refreshToken()
+            .then(response=>{
+                setAccessToken(response.data.access_token)
+                localStorage.setItem("refresh_token", response.data.refresh_token)
+            }) 
+        //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/
+        setTimeout(() => {
+            refresh()
+          }, 5*60*1000); 
+    };
+
     useEffect(()=>{
-        const refresh = () => {
-            refreshToken()
-                .then(response=>{
-                    setAccessToken(response.data.access_token)
-                    localStorage.setItem("refresh_token", response.data.refresh_token)
-                }) 
-            //** Note: Timeout should be shorter then the exipration time of the token(set in the backend)*/
-            setTimeout(() => {
-                refresh()
-              }, 5*60*1000); 
-        };
         refresh();
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return(
         !props.isDay ?

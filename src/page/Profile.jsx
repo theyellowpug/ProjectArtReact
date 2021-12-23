@@ -14,7 +14,7 @@ import { getProductsByClientId } from '../api/ProductApi';
 
 export const Profile = (props) => {
 
-    //const clientId = props.match.params.clientId;     cannot use in useEffect in deployment
+    const clientId = props.match.params.clientId;
 
     const [profileData, setProfileData] = useState();
     const [productData, setProductData] = useState();
@@ -22,18 +22,18 @@ export const Profile = (props) => {
     const [commentData, setCommentData] = useState();
 
     useEffect(() => {
-        getProfileByClientId(props.match.params.clientId)
+        getProfileByClientId(clientId)
             .then(response=>{
                 setProfileData(response.data);
                 console.log(response.data)
-            }).then(getProductsByClientId(props.match.params.clientId)
+            }).then(getProductsByClientId(clientId)
             .then(responseProducts=>{
                 setProductData(responseProducts.data)
-            })).then(response2 => {getAllComments(props.match.params.clientId)
+            })).then(response2 => {getAllComments(clientId)
                 .then(response2 => {
                     setCommentData(response2.data);
                 }).then(response3 => setIsLoaded(true))} )
-        },[])
+        },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         isLoaded ?

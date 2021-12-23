@@ -11,7 +11,7 @@ import Comments from '../component/multipleUse/Comments';
 
 export const ProductDetailsPage = (props) => {
     
-    //const productId = props.match.params.productId;   // can't use in useEffect in deployment
+    const productId = props.match.params.productId;
     const history = useHistory();
 
     const dispatch = useDispatch();    
@@ -27,15 +27,15 @@ export const ProductDetailsPage = (props) => {
     }
 
     useEffect(()=>{
-        getProductById(props.match.params.productId)
+        getProductById(productId)
             .then(response=>{
                 setProductData(response.data)
-            }).then(response2=> {getAllComments(props.match.params.productId)
+            }).then(response2=> {getAllComments(productId)
             .then(response2 => {
                 console.log(response2);
                 setCommentData(response2.data);
             }).then(response3 => setIsLoaded(true))} )
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
             isLoaded ? 
