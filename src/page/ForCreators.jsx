@@ -1,16 +1,17 @@
 import React, {useState,useEffect} from 'react';
 import { useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
+import { getClientIdByEmail } from '../api/ClientApi';
 
 
 export default function ForCreators() {
 
     const state = useSelector((state) => state);
-    const [clientEmail,setClientEmail] = useState("");
+    const [clientId,setClientId] = useState("");
 
     const decodeJWtToken = () => {
         state.accessToken!=="" ? 
-            setClientEmail(jwt_decode(state.accessToken).sub) : setClientEmail("")      
+            getClientIdByEmail(jwt_decode(state.accessToken).sub).then(respone=>setClientId(respone.data)) : setClientId("")
     }
 
     useEffect(()=>{
@@ -18,8 +19,8 @@ export default function ForCreators() {
     },[state])
 
     return(
-        clientEmail!=="" ? 
-            <p>Logged in as: {clientEmail}</p> //redirect to profile/id page
+        clientId!=="" ? 
+            <p>Logged in as: {clientId}</p> //redirect to profile/id page
         :
             <p>Not logged in</p>
     )
