@@ -8,7 +8,7 @@ import anim_moon from "../../VisualElements/anim_Moon.mp4";
 import NotificationBar from './NotificationBar';    
 import { TimeAndDate } from '../../utilities/TimeAndDate';
 
-import { useSelector, useDispatch } from "react-redux"
+import { /*useSelector, */useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
 import { AccessTokenActionCreators } from "../../state/actions/AccessTokenActions";
 import { refreshToken } from '../../api/AuthenticationApi';
@@ -17,9 +17,9 @@ const time = TimeAndDate();
 
 export default function Header(props) {
 
-    const state = useSelector((state) => state);
+    //const state = useSelector((state) => state);
     const dispatch = useDispatch();
-    const { setAccessToken, removeAccessToken} = bindActionCreators( AccessTokenActionCreators, dispatch);
+    const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
 
     const refresh = () => {
         refreshToken()
@@ -31,11 +31,11 @@ export default function Header(props) {
         setTimeout(() => {
             refresh()
           }, 5*60*1000); 
-    }
+    };
 
     useEffect(()=>{
-        refresh()  
-    },[])
+        refresh();
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return(
         !props.isDay ?

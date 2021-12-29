@@ -1,6 +1,5 @@
 import React, {useState,useEffect} from "react";
 import styled from "styled-components";
-import { LazyLoadImage } from "react-lazy-load-image-component";
 import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
 import { useDispatch } from "react-redux";
@@ -12,12 +11,11 @@ import Comments from '../component/multipleUse/Comments';
 
 export const ProductDetailsPage = (props) => {
     
-    const productId=props.match.params.productId;
+    const productId = props.match.params.productId;
     const history = useHistory();
 
     const dispatch = useDispatch();    
-    const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
-
+    const { addToCart/*,removeFromCart */} = bindActionCreators( CartActionCreators, dispatch);
 
     const [productData,setProductData]=useState();
     const [commentData, setCommentData] = useState();
@@ -37,7 +35,7 @@ export const ProductDetailsPage = (props) => {
                 console.log(response2);
                 setCommentData(response2.data);
             }).then(response3 => setIsLoaded(true))} )
-    },[])
+    },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
             isLoaded ? 
@@ -107,9 +105,10 @@ const AddToCartButton = styled.button`
     align-self: flex-end;
     font-size: 24px;
 `;
-
+/*
 const commentLoadingStyle = {
     textAlign: 'center',
     marginTop: '10vh',
     marginBottom: '50vh'
 }
+*/

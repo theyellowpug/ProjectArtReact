@@ -1,11 +1,10 @@
 import React, {useState,useEffect} from "react";
 import { getProductsByProductType } from "../api/ProductApi";
-import styled from 'styled-components';
 import ProductCard from '../component/product/ProductCard';
 import LoadingIcon from '../component/multipleUse/LoadingIcon';
 import '../css/pageContent.css';    //use "main" element as page container
 import SearchBar from "../component/product/ProductSearchBar";
-import { Card_FlexContainer } from '../css/CardStyledComponents';
+import { CardFlexContainer } from '../css/CardStyledComponents';
 
 
 export default function Services() {
@@ -25,9 +24,9 @@ export default function Services() {
         isLoaded ?
         <main>
             <SearchBar/>
-            <Card_FlexContainer>
+            <CardFlexContainer>
                 {allServices.map(product=><ProductCard key={product.id} product={product}/>)}
-            </Card_FlexContainer>
+            </CardFlexContainer>
         </main>
         :
         <LoadingIcon/>

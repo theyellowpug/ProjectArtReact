@@ -3,7 +3,7 @@ import styled from "styled-components";
 // STYLED CARDS
 
 // container for cards (child div of main)
-const Card_FlexContainer = styled.div`
+const CardFlexContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -77,5 +77,5 @@ const ItemCard = styled.div`
 export {
     ItemCard,
     ProfileCard,
-    Card_FlexContainer
+    CardFlexContainer
 }

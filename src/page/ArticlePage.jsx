@@ -1,16 +1,16 @@
-import React, {useState,useEffect} from "react";
+import React/*, {useState,useEffect}*/ from "react";
 import styled from 'styled-components';
-
+/*
 import Comments from '../component/multipleUse/Comments';
 import LoadingIcon from "../component/multipleUse/LoadingIcon";
-
+*/
 const ArticlePage = (props) => {
-
+/*
     const [commentData, setCommentData] = useState();
     const [isCommentsLoaded, setCommentsLoaded] = useState(false);
     const [articleData, setArticleData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
-
+*/
     return (
         <main>
             <Container>

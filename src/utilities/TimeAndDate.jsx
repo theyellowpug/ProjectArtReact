@@ -19,6 +19,7 @@ export function TimeAndDate(){
         case 10: time += "Október "; break;
         case 11: time += "November "; break;
         case 12: time += "December "; break;
+        default: break;
     }
     time += date + " ";
     switch(day) {
@@ -29,6 +30,7 @@ export function TimeAndDate(){
         case 4: time += ", Csütörtök"; break;
         case 5: time += ", Péntek"; break;
         case 6: time += ", Szombat"; break;
+        default: break;
     }
 
     return time;

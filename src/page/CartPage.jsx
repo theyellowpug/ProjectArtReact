@@ -12,7 +12,7 @@ export const CartPage = (props) => {
     const history = useHistory();
 
     const dispatch = useDispatch();    
-    const { addToCart,removeFromCart } = bindActionCreators( CartActionCreators, dispatch);
+    const { addToCart/*,removeFromCart */} = bindActionCreators( CartActionCreators, dispatch);
 
     const forwardToCheckoutPage = (event) =>{
         event.preventDefault();
