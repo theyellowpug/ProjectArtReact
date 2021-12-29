@@ -6,17 +6,19 @@ import jwt_decode from "jwt-decode";
 export default function ForCreators() {
 
     const state = useSelector((state) => state);
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [clientEmail,setClientEmail] = useState();
+    const [clientEmail,setClientEmail] = useState("");
+
+    const decodeJWtToken = () => {
+        state.accessToken!=="" ? 
+            setClientEmail(jwt_decode(state.accessToken).sub) : setClientEmail("")      
+    }
 
     useEffect(()=>{
-        setIsLoggedIn(state.accessToken!=="")
-        let decode = jwt_decode(state.accessToken)
-        setClientEmail(decode.sub)
+        decodeJWtToken()
     },[state])
 
     return(
-        isLoggedIn ? 
+        clientEmail!=="" ? 
             <p>Logged in as: {clientEmail}</p> //redirect to profile/id page
         :
             <p>Not logged in</p>
