@@ -52,7 +52,7 @@ export const Profile = (props) => {
         isLoaded ?
         <main>
         <FlexContainer>
-            <h1>{currentClientId}</h1>
+            {clientId==currentClientId ? <button>Add New Product</button> : <button>Like/follow placeholder</button> }
             <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
             <Description description={profileData.longDescription}/>
             <ProductsAndServices>
