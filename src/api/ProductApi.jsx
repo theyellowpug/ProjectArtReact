@@ -24,10 +24,7 @@ const getProductsByClientId = async (clientId) => {
 // POST
 
 const postProduct = async (clientId, productData) => {
-    let config = {
-        headers: { productData }
-    }
-    return await axios.post(BASE_URL + URL_PREFIX + "?clientId=" + clientId, null, config);
+    return await axios.post(BASE_URL + URL_PREFIX + "?clientId=" + clientId, productData);
 }
 
 export{
