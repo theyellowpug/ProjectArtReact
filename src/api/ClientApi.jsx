@@ -11,7 +11,12 @@ const getClientIdByEmail = (email) => {
     return axios.get(BASE_URL + URL_PREFIX + "clientIdByEmail?email=" + email);
 }
 
+const getIsArtist = (id) => {
+    return axios.get(BASE_URL + URL_PREFIX + "/isArtist?id=" + id);
+}
+
 export{
     postClient,
-    getClientIdByEmail
+    getClientIdByEmail,
+    getIsArtist
 }

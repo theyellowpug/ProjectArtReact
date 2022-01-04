@@ -11,8 +11,10 @@ import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 import { getProductsByClientId } from '../api/ProductApi';
+import { getIsArtist } from "../api/ClientApi";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
 
 export const Profile = (props) => {
 
@@ -27,13 +29,14 @@ export const Profile = (props) => {
     const [productData, setProductData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
+    const [isArtist, setIsArtist] = useState();
 
     const addNewProduct = () => {
         history.push("/addProduct")
     }
 
     useEffect(() => {
-        setCurrentClientId(state.userId)
+        setCurrentClientId(state.userId);
         getProfileByClientId(clientId)
             .then(response=>{
                 setProfileData(response.data);
@@ -44,7 +47,11 @@ export const Profile = (props) => {
             })).then(response2 => {getAllComments(clientId)
                 .then(response2 => {
                     setCommentData(response2.data);
-                }).then(response3 => setIsLoaded(true))} )
+                }).then(getIsArtist(clientId).then(response3 => 
+                    {setIsArtist(response3.data)
+                        console.log(response3.data)
+                    }))
+                .then(response4 => setIsLoaded(true))} )
         },[state]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
