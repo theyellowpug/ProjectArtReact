@@ -12,8 +12,6 @@ import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 import { getProductsByClientId } from '../api/ProductApi';
 import { useSelector } from "react-redux";
-import jwt_decode from "jwt-decode";
-import { getClientIdByEmail } from '../api/ClientApi';
 
 export const Profile = (props) => {
 
@@ -27,14 +25,8 @@ export const Profile = (props) => {
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
 
-
-    const decodeJWtToken = () => {
-        state.accessToken!=="" ? 
-            getClientIdByEmail(jwt_decode(state.accessToken).sub).then(respone=>setCurrentClientId(respone.data)) : setCurrentClientId("")
-    }
-
     useEffect(() => {
-        decodeJWtToken()
+        setCurrentClientId(state.userId)
         getProfileByClientId(clientId)
             .then(response=>{
                 setProfileData(response.data);
