@@ -12,10 +12,13 @@ import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 import { getProductsByClientId } from '../api/ProductApi';
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 export const Profile = (props) => {
 
     const clientId = props.match.params.clientId;
+
+    const history = useHistory();
 
     const state = useSelector((state) => state);
 
@@ -24,6 +27,10 @@ export const Profile = (props) => {
     const [productData, setProductData] = useState();
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
+
+    const addNewProduct = () => {
+        history.push("/addProduct")
+    }
 
     useEffect(() => {
         setCurrentClientId(state.userId)
@@ -44,7 +51,7 @@ export const Profile = (props) => {
         isLoaded ?
         <main>
         <FlexContainer>
-            {clientId==currentClientId ? <button>Add New Product</button> : <button>Like/follow placeholder</button> }
+            {clientId==currentClientId ? <button onClick={addNewProduct}>Add New Product</button> : <button>Like/follow placeholder</button> }
             <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
             <Description description={profileData.longDescription}/>
             <ProductsAndServices>
