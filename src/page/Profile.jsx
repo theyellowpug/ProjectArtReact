@@ -12,12 +12,13 @@ import { getProfileByClientId } from "../api/ProfileApi";
 import { getAllByClientId as getAllComments } from '../api/CommentApi';
 import { getProductsByClientId } from '../api/ProductApi';
 import { useSelector } from "react-redux";
-import jwt_decode from "jwt-decode";
-import { getClientIdByEmail } from '../api/ClientApi';
+import { useHistory } from "react-router-dom";
 
 export const Profile = (props) => {
 
     const clientId = props.match.params.clientId;
+
+    const history = useHistory();
 
     const state = useSelector((state) => state);
 
@@ -27,14 +28,12 @@ export const Profile = (props) => {
     const [isLoaded , setIsLoaded] = useState(false);
     const [commentData, setCommentData] = useState();
 
-
-    const decodeJWtToken = () => {
-        state.accessToken!=="" ? 
-            getClientIdByEmail(jwt_decode(state.accessToken).sub).then(respone=>setCurrentClientId(respone.data)) : setCurrentClientId("")
+    const addNewProduct = () => {
+        history.push("/addProduct")
     }
 
     useEffect(() => {
-        decodeJWtToken()
+        setCurrentClientId(state.userId)
         getProfileByClientId(clientId)
             .then(response=>{
                 setProfileData(response.data);
@@ -52,7 +51,7 @@ export const Profile = (props) => {
         isLoaded ?
         <main>
         <FlexContainer>
-            {clientId==currentClientId ? <button>Add New Product</button> : <button>Like/follow placeholder</button> }
+            {clientId==currentClientId ? <button onClick={addNewProduct}>Add New Product</button> : <button>Like/follow placeholder</button> }
             <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
             <Description description={profileData.longDescription}/>
             <ProductsAndServices>

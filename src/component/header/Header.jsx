@@ -12,6 +12,11 @@ import { /*useSelector, */useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
 import { AccessTokenActionCreators } from "../../state/actions/AccessTokenActions";
 import { refreshToken } from '../../api/AuthenticationApi';
+import { UserIdActionCreators } from '../../state/actions/UserIdActions';
+
+import jwt_decode from "jwt-decode";
+import { getClientIdByEmail } from '../../api/ClientApi';
+
 
 const time = TimeAndDate();
 
@@ -20,10 +25,13 @@ export default function Header(props) {
     //const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
+    const { setUserId } = bindActionCreators(UserIdActionCreators,dispatch)
+
 
     const refresh = () => {
         refreshToken()
             .then(response=>{
+                getClientIdByEmail(jwt_decode(response.data.access_token).sub).then(response2=>setUserId(response2.data))
                 setAccessToken(response.data.access_token)
                 localStorage.setItem("refresh_token", response.data.refresh_token)
             }) 
