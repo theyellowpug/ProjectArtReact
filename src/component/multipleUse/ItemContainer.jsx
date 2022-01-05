@@ -1,19 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 
 //import ProductCard from '../product/ProductCard';
 import ScrollerArrow from './ScrollerArrow';
 
 //uses same card components as on market pages
-export default function ItemContainer() {
+export const ItemContainer = (props) => {
+
+    const [startIndex, setStartIndex] = useState(0);
+
     return (
         <Container>
-            <ScrollerArrow />
+            {
+            (props.items.length == 0)
+            ?
+                <p>Úgy tűnik nincs hozzáadott termék!</p>
+            :
                 
-            <ScrollerArrow/>
+                <React.Fragment>
+                    <ScrollerArrow/>
+                    <ScrollerArrow/>
+                </React.Fragment>
+            }
         </Container>
     )
 }
+export default ItemContainer;
 
 const Container = styled.div`
     margin: 20px;

@@ -7,7 +7,12 @@ const Comments = (props) => {
     return (
         <Container>
             <Title>Kommentek</Title>
-            {props.data.map(comment=><CommentCard key={comment.id} commentData={comment}/>)}
+            {props.data.length != 0 
+                ? 
+                    props.data.map(comment=><CommentCard key={comment.id} commentData={comment}/>)
+                :
+                    <NoComment>Hmm. Itt nincsenek kommentek.</NoComment>
+            }
         </Container>
     )
 }
@@ -25,4 +30,8 @@ const Container = styled.div`
 
 const Title = styled.h1`
     text-align: center;
+`;
+
+const NoComment = styled.p`
+    color: gray;
 `;

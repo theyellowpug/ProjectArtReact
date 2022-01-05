@@ -6,6 +6,7 @@ import LoadingIcon from "../component/multipleUse/LoadingIcon";
 import ItemContainer from '../component/multipleUse/ItemContainer';
 import NameAndPics from '../component/profile/NameAndPics';
 import Description from '../component/profile/Description';
+import { BtnInput, P } from "../css/FormStyledComponents";
 
 import '../css/pageContent.css';    //use "main" element as page container
 import { getProfileByClientId } from "../api/ProfileApi";
@@ -14,7 +15,6 @@ import { getProductsByClientId } from '../api/ProductApi';
 import { getIsArtist } from "../api/ClientApi";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import jwt_decode from "jwt-decode";
 
 export const Profile = (props) => {
 
@@ -34,12 +34,15 @@ export const Profile = (props) => {
     const addNewProduct = () => {
         history.push("/addProduct")
     }
+    const changeToCreator = () =>  {
+        history.push("/beACreator")
+    }
 
     useEffect(() => {
         setCurrentClientId(state.userId);
         getProfileByClientId(clientId)
             .then(response=>{
-                setProfileData(response.data);
+                setProfileData(response.data);                  
                 console.log(response.data)
             }).then(getProductsByClientId(clientId)
             .then(responseProducts=>{
@@ -61,11 +64,22 @@ export const Profile = (props) => {
             {clientId==currentClientId ? <button onClick={addNewProduct}>Add New Product</button> : <button>Like/follow placeholder</button> }
             <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
             <Description description={profileData.longDescription}/>
-            <ProductsAndServices>
-                <ItemContainer items={productData}/>
-                <ItemContainer items={productData}/>
-            </ProductsAndServices>
-            <Comments data={commentData}/>         
+            {isArtist ? 
+                <React.Fragment>
+                    <ProductsAndServices>
+                        <ProductTitle>Termékek</ProductTitle>
+                        <ItemContainer items={productData}/>
+                        <ProductTitle>Szolgáltatások</ProductTitle>
+                        <ItemContainer items={productData}/>
+                    </ProductsAndServices>
+                    <Comments data={commentData}/>     
+                </React.Fragment>
+            : 
+                <React.Fragment>
+                    <P>Légy te is alkotó!</P>
+                    <BtnInput onClick={changeToCreator} value="Alkotó leszek!"></BtnInput>
+                </React.Fragment>
+            }
         </FlexContainer>
         </main>
         :
@@ -90,6 +104,11 @@ const ProductsAndServices = styled.div`
     justify-content: space-evenly;
     align-items: center;
 `;
+
+const ProductTitle = styled.p`
+    margin: 20px 50vw -10px 0px;
+`;
+
 /*
 const commentLoadingStyle = {
     textAlign: 'center',
