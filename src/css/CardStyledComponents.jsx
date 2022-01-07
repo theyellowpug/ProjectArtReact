@@ -44,6 +44,7 @@ const ProfileCard = styled.div`
 // product & service card
 const ItemCard = styled.span`
     margin: 3px 3px;
+    margin-left: auto;
     padding: 0.42vh 0.6vw;
     padding-left: 0.4vw;
     width: 18vw;
@@ -63,7 +64,7 @@ const ItemCard = styled.span`
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
     
     transition: all 100ms ease;
