@@ -44,7 +44,7 @@ const ProfileCard = styled.div`
 // product & service card
 const ItemCard = styled.span`
     margin: 3px 3px;
-    margin-left: auto;
+    margin-right: auto;
     padding: 0.42vh 0.6vw;
     padding-left: 0.4vw;
     width: 18vw;
@@ -70,7 +70,6 @@ const ItemCard = styled.span`
     transition: all 100ms ease;
     &:hover{
         cursor: pointer;
-        margin: 5px 5px;
         background: radial-gradient(circle, rgba(182,197,222,1) 0%, rgba(200,211,230,1) 100%); 
         color: #0e1622;
         box-shadow: 1px 1px 0px 0px black;
