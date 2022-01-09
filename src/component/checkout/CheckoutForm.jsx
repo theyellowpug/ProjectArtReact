@@ -2,9 +2,17 @@ import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { createPaymentIntent } from "../../api/PaymentApi";
 import { PaymentStatusMessage } from "./PaymentStatusMessage";
+import { useSelector } from "react-redux";
+import './CheckoutForm.css';
 
+export default function CheckoutForm(props) {
 
-export default function CheckoutForm() {
+  const state = useSelector((state) => state);
+
+  const cart = {
+    "productIds": state.cart
+  }
+
   const [isTransactionFinished, setIsTransactionFinished] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState('');
@@ -25,8 +33,9 @@ export default function CheckoutForm() {
     if(!stripe || !elements){
         return;
     }
+    console.log(cart)
     setProcessing(true);
-    createPaymentIntent()
+    createPaymentIntent(cart)
     .then(response => {
         console.log(response.data) //todo:remove
         stripe.confirmCardPayment(
@@ -55,9 +64,9 @@ export default function CheckoutForm() {
 
   return (
   !isTransactionFinished ? (
-    <form id="payment-form" onSubmit={handleSubmit}>
-    <CardElement id="card-element" onChange={handleChange} />
-    <button
+    <form className="payment-form" onSubmit={handleSubmit}>
+    <CardElement className="card-element" onChange={handleChange} />
+    <button className="paymet-button"
       disabled={processing || disabled || isTransactionFinished}
       id="submit"
     >

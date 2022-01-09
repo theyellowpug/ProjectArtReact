@@ -22,7 +22,6 @@ const time = TimeAndDate();
 
 export default function Header(props) {
 
-    //const state = useSelector((state) => state);
     const dispatch = useDispatch();
     const { setAccessToken/*, removeAccessToken*/} = bindActionCreators( AccessTokenActionCreators, dispatch);
     const { setUserId } = bindActionCreators(UserIdActionCreators,dispatch)

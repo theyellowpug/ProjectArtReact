@@ -16,7 +16,7 @@ export default function SearchBar() {
         getAllTags().then(response => {
             setTags(response.data)
         }).then(response2 => setIsLoaded(true))
-    });
+    },[]);
 
     return (
         <Container>
