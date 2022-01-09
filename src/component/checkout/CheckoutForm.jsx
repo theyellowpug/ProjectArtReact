@@ -3,7 +3,7 @@ import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { createPaymentIntent } from "../../api/PaymentApi";
 import { PaymentStatusMessage } from "./PaymentStatusMessage";
 import { useSelector } from "react-redux";
-
+import './CheckoutForm.css';
 
 export default function CheckoutForm(props) {
 
@@ -64,9 +64,9 @@ export default function CheckoutForm(props) {
 
   return (
   !isTransactionFinished ? (
-    <form id="payment-form" onSubmit={handleSubmit}>
-    <CardElement id="card-element" onChange={handleChange} />
-    <button
+    <form className="payment-form" onSubmit={handleSubmit}>
+    <CardElement className="card-element" onChange={handleChange} />
+    <button className="paymet-button"
       disabled={processing || disabled || isTransactionFinished}
       id="submit"
     >
