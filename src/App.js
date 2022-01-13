@@ -14,6 +14,7 @@ import LoginPage from './page/LoginPage';
 import Upload from './component/product/Upload';
 import ForCreators from './page/ForCreators';
 import { AddProductPage } from './page/AddProductPage';
+import ProfileEditPage from './page/ProfileEditPage';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/upload" component={Upload}></Route>
         <Route exact path="/creatorHQ" component={ForCreators}></Route>
         <Route exact path="/addProduct" component={AddProductPage}></Route>
+        <Route exact path="/edit" component={ProfileEditPage}></Route>
       </div>
     </Router>
   );

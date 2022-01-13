@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { getProfilePic } from '../../api/ProfileApi';
+import defaultProfilePic from '../../VisualElements/defaultProfilePic.png';
 
 import Highlights from './Highlights';
 
 const NameAndPics = (props) => {
+
+    const [profilePic, setProfilePic] = useState(defaultProfilePic);
+    
+    useEffect(() =>{
+        getProfilePic(props.clientId).then(
+            response => {
+                if(response.status == 200) //the requested image is stored on the server & the download was succesful
+                {
+                    console.log(response.data);
+                    setProfilePic("data:image/jpeg;base64," + response.data);
+                }
+            }
+        )
+    },[])
+
     return (
         <Container>
             <LeftSection>
-                <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
+                <LazyLoadImage style={ProfilePic} src={profilePic}/>
                 <Name>{props.clientName}</Name>
                 <Title>{props.clientTitle}</Title>
             </LeftSection>

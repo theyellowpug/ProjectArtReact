@@ -5,35 +5,34 @@ import ProductCard from '../product/ProductCard';
 
 //uses same card components as on market pages
 export const ItemContainer = (props) => {
-    const [itemIsOpened, setItemIsOpened] = useState(true);    //used in opening or closing the itemcontainer
+    const [itemIsOpened, setItemIsOpened] = useState(1);    //used in opening or closing the itemcontainer
 
     // used to reference this container from ChangeOpened, unique id generated with miliseconds passed since January 1, 1970
     const containerIdentifier = 'sizeRespone' + new Date().getTime();               
     // open or close the itemcontainer based on the itemIsOpen state
     const ChangeOpened = () => {                                                    
         let element = document.getElementById(containerIdentifier);
-        if(itemIsOpened === true){
+        if(itemIsOpened === 1){
+            setItemIsOpened(0);
             element.style.height = '25vh';
             element.style.overflowX = 'scroll';
             element.style.overflowY = 'hidden';
             element.style.flexWrap = 'nowrap';
             element.style.marginBottom = '20px';
             element.style.width = '70vw';
-            setItemIsOpened(false);
-        } else {
+        } else if (itemIsOpened === 0) {
+            setItemIsOpened(1);
             element.style.height = '75vh';
             element.style.overflowX = 'clip';
             element.style.overflowY = 'scroll';
             element.style.flexWrap = 'wrap';
             element.style.marginBottom = '50px';
             element.style.width = '60vw';
-            setItemIsOpened(true);
         }
-
     }
 
     return (
-        <React.Fragment style="position: static;">
+        <React.Fragment>
         <Container id={containerIdentifier}>          
             {
             (props.items.length == 0)
