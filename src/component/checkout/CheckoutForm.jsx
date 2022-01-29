@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { createPaymentIntent } from "../../api/PaymentApi";
+import { createPaymentIntent, createPaymentIntentWithCustomerId } from "../../api/PaymentApi";
 import { PaymentStatusMessage } from "./PaymentStatusMessage";
 import { useSelector } from "react-redux";
 import './CheckoutForm.css';
@@ -35,7 +35,7 @@ export default function CheckoutForm(props) {
     }
     console.log(cart)
     setProcessing(true);
-    createPaymentIntent(cart)
+    createPaymentIntentWithCustomerId(cart,state.userId)
     .then(response => {
         console.log(response.data) //todo:remove
         stripe.confirmCardPayment(
@@ -59,7 +59,6 @@ export default function CheckoutForm(props) {
                 })
     })
 
-    
   };
 
   return (
