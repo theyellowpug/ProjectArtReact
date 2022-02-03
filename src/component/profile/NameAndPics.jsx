@@ -15,7 +15,6 @@ const NameAndPics = (props) => {
             response => {
                 if(response.status == 200) //the requested image is stored on the server & the download was succesful
                 {
-                    console.log(response.data);
                     setProfilePic("data:image/jpeg;base64," + response.data);
                 }
             }
