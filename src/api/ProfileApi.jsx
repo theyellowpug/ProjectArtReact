@@ -15,9 +15,19 @@ const getProfileCards = async (numberOfPages,numberOfCards) => {
     return await axios.get(URL_PREFIX + "profileCard?numberOfPages="+numberOfPages+"&numberOfProfiles="+numberOfCards);
 }
 
+const setProfilePic = async (formData) => {
+    return await axios.put(URL_PREFIX + "setProfilePic", formData);
+}
+
+const getProfilePic = async (id) => {
+    return await axios.get(URL_PREFIX + "getProfilePic?id=" + id);
+}
+
 export 
 { 
     getProfileByClientId,
     getAllProfiles,
-    getProfileCards
+    getProfileCards,
+    setProfilePic,
+    getProfilePic
 }
