@@ -10,12 +10,14 @@ import defaultProfilePic from '../VisualElements/defaultProfilePic.png';
 
 export default function ProfileEditPage() {
     
+    // import image convert tool
+    const Jimp = require("jimp");
     //import global state redux
     const state = useSelector((state) => state); 
     // import browse history
     const history = useHistory();
 
-    const [profilePicData, setProfilePicData] = useState(defaultProfilePic);
+    const [profilePicData, setProfilePicData] = useState(null);
     const [profPicPreview, setProfPicPreview] = useState(defaultProfilePic);
 
     // for react-dropzone
@@ -23,15 +25,22 @@ export default function ProfileEditPage() {
 
     // used when profilePic upload button is pressed 
     const submitHandler = () => {
-        // creating a form data object    
-        const formData = new FormData(); 
-        // adding params
-        formData.append("file", profilePicData);
-        formData.append("id", (state.userId) /*(global state)*/);
-        setProfilePic(formData);
-        // redirecting
-        history.push("/profile/" + state.userId);
-        NotificationManager.success('Yéy! A profilkép cseréje sikeres volt!');
+        if(profilePicData != null)
+        {
+            // creating a form data object    
+            const formData = new FormData(); 
+            // adding params
+            formData.append("file", profilePicData);
+            formData.append("id", (state.userId) /*(global state)*/)
+            console.log(formData);
+            setProfilePic(formData).then(response =>{
+            // redirecting
+            history.push("/profile/" + state.userId);
+            NotificationManager.success('Yéy! A profilkép cseréje sikeres volt!');
+            });
+        } else {
+            NotificationManager.warning('Nem töltöttél fel képet.');
+        }
     } 
 
     return (
@@ -42,20 +51,27 @@ export default function ProfileEditPage() {
                         onDrop={(acceptedFiles, rejectedFiles) => {
                             if(acceptedFiles.length > 0){
                                 // Setting preview and preparing for upload in state
+                                Jimp.read(acceptedFiles[0], function (err, image) {
+                                    if(err) {console.log("Error occured during the conversion!  --  " + err)}
+                                    else{
+                                        setProfPicPreview(image);
+                                    }
+                                })
+                                /*
                                 setProfilePicData(acceptedFiles[0]);
                                 setProfPicPreview(URL.createObjectURL(acceptedFiles[0]));
+                                */
                             } else {
                                 // Handling error and notifying user 
                                 console.log(rejectedFiles[0].errors[0].code);
                                 switch(rejectedFiles[0].errors[0].code){
-                                    case 'file-too-large':   NotificationManager.error('A kép mérete nagyobb mint 3MB!');
+                                    case 'file-too-large':      NotificationManager.error('A kép mérete nagyobb mint 3MB!');
                                         break;
                                     case 'too-many-files':      NotificationManager.error('Egyszerre csak egy kép tölthető fel!');
                                         break;
                                     case 'file-invalid-type':   NotificationManager.error('Nem megfelelő fájlformátum!\nElfogadott: .jpg & .png');
                                         break;
                                     default:                    NotificationManager.error('A kép feltöltése nem sikerült.');
-
                                 }
                             }
                     }}

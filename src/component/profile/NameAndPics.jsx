@@ -9,28 +9,37 @@ import Highlights from './Highlights';
 const NameAndPics = (props) => {
 
     const [profilePic, setProfilePic] = useState(defaultProfilePic);
+    const [isLoaded, setIsLoaded] = useState(false);
     
     useEffect(() =>{
         getProfilePic(props.clientId).then(
             response => {
+                console.log(response);
                 if(response.status == 200) //the requested image is stored on the server & the download was succesful
                 {
-                    setProfilePic("data:image/jpeg;base64," + response.data);
+                    setProfilePic(new URL("data:image/png;base64, " + response.data));
+                } else {
+                    console.log('Failed to retrieve profile picture! Status: ' + response.status);
                 }
             }
-        )
+        ).then(response2 => {setIsLoaded(true)})
     },[])
 
+
     return (
+        isLoaded 
+        ?
         <Container>
             <LeftSection>
-                <LazyLoadImage style={ProfilePic} src={profilePic}/>
+                <img style={ProfilePic} src={profilePic}/>
                 <Name>{props.clientName}</Name>
                 <Title>{props.clientTitle}</Title>
             </LeftSection>
             <Highlights/>
             <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
         </Container>
+        :
+        <Container/>
     )
 }
 export default NameAndPics;
