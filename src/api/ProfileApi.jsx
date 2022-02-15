@@ -19,8 +19,8 @@ const setProfilePic = async (formData) => {
     return await axios.put(URL_PREFIX + "setProfilePic", formData);
 }
 
-const getProfilePic = async (id) => {
-    return await axios.get(URL_PREFIX + "getProfilePic?id=" + id);
+const hasProfilePic = async (id) => {
+    return await axios.get(URL_PREFIX + "hasProfilePic?id=" + id);
 }
 
 export 
@@ -29,5 +29,5 @@ export
     getAllProfiles,
     getProfileCards,
     setProfilePic,
-    getProfilePic
+    hasProfilePic
 }

@@ -1,45 +1,37 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import { getProfilePic } from '../../api/ProfileApi';
+import { hasProfilePic } from '../../api/ProfileApi';
 import defaultProfilePic from '../../VisualElements/defaultProfilePic.png';
 
 import Highlights from './Highlights';
 
 const NameAndPics = (props) => {
 
-    const [profilePic, setProfilePic] = useState(defaultProfilePic);
-    const [isLoaded, setIsLoaded] = useState(false);
-    
-    useEffect(() =>{
-        getProfilePic(props.clientId).then(
-            response => {
-                console.log(response);
-                if(response.status == 200) //the requested image is stored on the server & the download was succesful
-                {
-                    setProfilePic(new URL("data:image/png;base64, " + response.data));
-                } else {
-                    console.log('Failed to retrieve profile picture! Status: ' + response.status);
-                }
-            }
-        ).then(response2 => {setIsLoaded(true)})
+    const profPicURL = "http://localhost:8080/profile/getProfilePic?id=" + props.clientId;
+    const [hasProfileImg, setHasProfileImg] = useState(false);
+    useEffect(()=>{
+        hasProfilePic(props.clientId).then(response => {
+            console.log(response.status);
+            if(response.status == 200)
+                setHasProfileImg(true);
+        })
     },[])
 
-
     return (
-        isLoaded 
-        ?
         <Container>
             <LeftSection>
-                <img style={ProfilePic} src={profilePic}/>
+                {hasProfileImg ?
+                <img style={ProfilePic} src={profPicURL}/>
+                :
+                <img style={ProfilePic} src={defaultProfilePic}/>
+                }
                 <Name>{props.clientName}</Name>
                 <Title>{props.clientTitle}</Title>
             </LeftSection>
             <Highlights/>
             <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
         </Container>
-        :
-        <Container/>
     )
 }
 export default NameAndPics;

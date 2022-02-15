@@ -50,17 +50,8 @@ export default function ProfileEditPage() {
                         // Runs when file is uploaded (whether it is dropped or not)
                         onDrop={(acceptedFiles, rejectedFiles) => {
                             if(acceptedFiles.length > 0){
-                                // Setting preview and preparing for upload in state
-                                Jimp.read(acceptedFiles[0], function (err, image) {
-                                    if(err) {console.log("Error occured during the conversion!  --  " + err)}
-                                    else{
-                                        setProfPicPreview(image);
-                                    }
-                                })
-                                /*
                                 setProfilePicData(acceptedFiles[0]);
                                 setProfPicPreview(URL.createObjectURL(acceptedFiles[0]));
-                                */
                             } else {
                                 // Handling error and notifying user 
                                 console.log(rejectedFiles[0].errors[0].code);
