@@ -43,6 +43,8 @@ function App() {
           <Route exact path="/creatorHQ" component={ForCreators}></Route>
           <Route exact path="/addProduct" component={AddProductPage}></Route>
           <Route exact path="/edit" component={ProfileEditPage}></Route>
+          <Route exact path="/orders"/>
+          <Route exact path="/transactions"/>
         </div>
       </div>
     </Router>
