@@ -1,0 +1,11 @@
+{
+ "icons": {
+	"Transactions": 	"https://www.flaticon.com/premium-icon/transaction_2541369",
+	"Edit": 			"https://www.flaticon.com/free-icon/edit_1827933",
+	"Add product":		"https://www.flaticon.com/free-icon/add_875068",
+	"Orders":			"https://www.flaticon.com/premium-icon/order-delivery_3624080",
+	"Follow":			"https://www.flaticon.com/premium-icon/add_3683218",
+	"Followed":			"https://www.flaticon.com/premium-icon/add-friend_3683214"
+ }
+}
+
