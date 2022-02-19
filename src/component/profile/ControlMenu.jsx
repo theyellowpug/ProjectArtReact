@@ -19,7 +19,7 @@ const ControlMenu = () => {
         <ControlIcon src={addProduct}   onClick={() => redirect("upload")}/>
         <ControlIcon src={edit}         onClick={() => redirect("edit")}/>
         <ControlIcon src={orders}       onClick={() => redirect("orders")}/>
-        <ControlIcon src={transactions} onClick={() => redirect("transactions")}/>
+        <ControlIcon src={transactions} onClick={() => redirect("transactionHistory")}/>
     </Container>
   )
 }
