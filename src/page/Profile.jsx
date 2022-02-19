@@ -43,7 +43,6 @@ export const Profile = (props) => {
         getProfileByClientId(clientId)
             .then(response=>{
                 setProfileData(response.data);                  
-                console.log(response.data)
             }).then(getProductsByClientId(clientId)
             .then(responseProducts=>{
                 setProductData(responseProducts.data)
@@ -52,17 +51,18 @@ export const Profile = (props) => {
                     setCommentData(response2.data);
                 }).then(getIsArtist(clientId).then(response3 => 
                     {setIsArtist(response3.data)
-                        console.log(response3.data)
+                        console.log("Is user artist?: " + response3.data)
                     }))
                 .then(response4 => setIsLoaded(true))} )
         },[state]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
+        
         isLoaded ?
         <main>
         <FlexContainer>
             {clientId==currentClientId ? <button onClick={addNewProduct}>Add New Product</button> : <button>Like/follow placeholder</button> }
-            <NameAndPics clientName={profileData.name} clientTitle={profileData.title}/>
+            <NameAndPics clientName={profileData.name} clientTitle={profileData.title} clientId={clientId}/>
             <Description description={profileData.longDescription}/>
             {isArtist ? 
                 <React.Fragment>
