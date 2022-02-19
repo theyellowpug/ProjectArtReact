@@ -30,7 +30,6 @@ const NameAndPics = (props) => {
                 <Title>{props.clientTitle}</Title>
             </LeftSection>
             <Highlights/>
-            <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
         </Container>
     )
 }
@@ -53,7 +52,8 @@ const LeftSection = styled.div`
 const ProfilePic = {
     alignSelf: 'flex-start',
     height: '40vh',
-    marginTop: '2vh'
+    marginTop: '2vh',
+    borderRadius: '8px'
 };
 
 const FollowEdit = styled.div`

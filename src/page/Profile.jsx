@@ -15,6 +15,8 @@ import { getProductsByClientId } from '../api/ProductApi';
 import { getIsArtist } from "../api/ClientApi";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import ControlMenu from "../component/profile/ControlMenu";
+import Follow from "../component/profile/Follow";
 
 export const Profile = (props) => {
 
@@ -54,34 +56,34 @@ export const Profile = (props) => {
                         console.log("Is user artist?: " + response3.data)
                     }))
                 .then(response4 => setIsLoaded(true))} )
-        },[state]) // eslint-disable-line react-hooks/exhaustive-deps
+        },[clientId]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         
         isLoaded ?
         <main>
-        <FlexContainer>
-            {clientId==currentClientId ? <button onClick={addNewProduct}>Add New Product</button> : <button>Like/follow placeholder</button> }
-            <NameAndPics clientName={profileData.name} clientTitle={profileData.title} clientId={clientId}/>
-            <Description description={profileData.longDescription}/>
-            {isArtist ? 
-                <React.Fragment>
-                    <ProductsAndServices>
-                        <ProductTitle>Termékek</ProductTitle>
-                        <ItemContainer items={productData}/>
-                        <ProductTitle>Szolgáltatások</ProductTitle>
-                        <ItemContainer items={productData}/>
-                    </ProductsAndServices>
-                    <Comments data={commentData}/>     
-                </React.Fragment>
-            : 
-                <React.Fragment>
-                    <P>Légy te is alkotó!</P>
-                    <BtnInput onClick={changeToCreator} value="Alkotó leszek!"></BtnInput>
-                </React.Fragment>
-            }
-        </FlexContainer>
-        </main>
+            {clientId==currentClientId ? <ControlMenu/> : <Follow/>}
+            <FlexContainer>
+                <NameAndPics clientName={profileData.name} clientTitle={profileData.title} clientId={clientId}/>
+                <Description description={profileData.longDescription}/>
+                {isArtist ? 
+                    <React.Fragment>
+                        <ProductsAndServices>
+                            <ProductTitle>Termékek</ProductTitle>
+                            <ItemContainer items={productData}/>
+                            <ProductTitle>Szolgáltatások</ProductTitle>
+                            <ItemContainer items={productData}/>
+                        </ProductsAndServices>
+                        <Comments data={commentData}/>     
+                    </React.Fragment>
+                : 
+                    <React.Fragment>
+                        <P>Légy te is alkotó!</P>
+                        <BtnInput onClick={changeToCreator} value="Alkotó leszek!"></BtnInput>
+                    </React.Fragment>
+                }
+            </FlexContainer>
+            </main>
         :
         <LoadingIcon/>
     )
@@ -108,6 +110,8 @@ const ProductsAndServices = styled.div`
 const ProductTitle = styled.p`
     margin: 20px 50vw -10px 0px;
 `;
+
+const FollowButton = styled
 
 /*
 const commentLoadingStyle = {
