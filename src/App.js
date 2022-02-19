@@ -14,6 +14,8 @@ import LoginPage from './page/LoginPage';
 import Upload from './component/product/Upload';
 import ForCreators from './page/ForCreators';
 import { AddProductPage } from './page/AddProductPage';
+import { OrdersPage } from './page/OrdersPage';
+import { TransactionHistoryPage } from './page/TransactionHistoryPage';
 import ProfileEditPage from './page/ProfileEditPage';
 // For all notifications in the react app 
 import {NotificationContainer} from 'react-notifications';
@@ -43,6 +45,8 @@ function App() {
           <Route exact path="/creatorHQ" component={ForCreators}></Route>
           <Route exact path="/addProduct" component={AddProductPage}></Route>
           <Route exact path="/edit" component={ProfileEditPage}></Route>
+          <Route exact path="/orders" component={OrdersPage}></Route>
+          <Route exact path="/transactionHistory" component={TransactionHistoryPage}></Route>
         </div>
       </div>
     </Router>
