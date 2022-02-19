@@ -4,7 +4,7 @@ import {BASE_URL} from "./ApiConstants"
 
 const URL_PREFIX="cart/" 
 
-const getProductsByClientId = async (clientId) => {
+const getProductsOfCartByClientId = async (clientId) => {
     let config = {
         headers: { Authorization: `Bearer ${store.getState().accessToken}` }
     }
@@ -20,7 +20,7 @@ return await axios.put(BASE_URL + URL_PREFIX + "addProductToCartByClientId?clien
 
 export 
 { 
-    getProductsByClientId,
+    getProductsOfCartByClientId,
     addProductsToCartByClientId
 }
 
