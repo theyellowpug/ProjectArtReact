@@ -4,21 +4,13 @@ import {BASE_URL} from "./ApiConstants"
 
 const URL_PREFIX="payment/" 
 
-const createPaymentIntent = async (products) => {
+const createPaymentIntent = async (clientId) => {
     let config = {
         headers: { Authorization: `Bearer ${store.getState().accessToken}` }
     }
-    return await axios.post(BASE_URL + URL_PREFIX + "create-payment-intent", products, config);
-}
-
-const createPaymentIntentWithCustomerId = async (products, customerId) => {
-    let config = {
-        headers: { Authorization: `Bearer ${store.getState().accessToken}` }
-    }
-    return await axios.post(BASE_URL + URL_PREFIX + "create-payment-intent-with-customerId?customerId="+customerId, products, config);
+    return await axios.post(BASE_URL + URL_PREFIX + "create-payment-intent?clientId="+clientId, "", config);
 }
 
 export{
     createPaymentIntent,
-    createPaymentIntentWithCustomerId
 }
