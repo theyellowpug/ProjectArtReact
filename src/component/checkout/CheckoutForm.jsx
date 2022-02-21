@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { createPaymentIntent } from "../../api/PaymentApi";
+import { createPaymentIntent, savePayment } from "../../api/PaymentApi";
 import { PaymentStatusMessage } from "./PaymentStatusMessage";
 import { useSelector } from "react-redux";
 import './CheckoutForm.css';
@@ -58,7 +58,13 @@ export default function CheckoutForm(props) {
                 else if(response2.error){
                   setPaymenterrorMessage(response2.error.message)
                   setPaymentStatus("failed")
-                }                
+                }
+                savePayment({
+                  "customerId": clientId,
+                  "paymentIntentId": response2.paymentIntent.id,
+                  "paymentIntentStatus": response2.paymentIntent.status
+    
+                }) //todo: add datetime               
                 
                 }).then(response3=>{
                   setProcessing(false)

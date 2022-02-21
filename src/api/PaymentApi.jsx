@@ -11,6 +11,14 @@ const createPaymentIntent = async (clientId) => {
     return await axios.post(BASE_URL + URL_PREFIX + "create-payment-intent?clientId="+clientId, "", config);
 }
 
+const savePayment = async (paymentData) => {
+    let config = {
+        headers: { Authorization: `Bearer ${store.getState().accessToken}` }
+    }
+    return await axios.post(BASE_URL + URL_PREFIX + "savePayment", paymentData, config);
+}
+
 export{
     createPaymentIntent,
+    savePayment
 }
