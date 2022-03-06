@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import { createPaymentIntent, createPaymentIntentWithCustomerId } from "../../api/PaymentApi";
+import { createPaymentIntent, savePayment } from "../../api/PaymentApi";
 import { PaymentStatusMessage } from "./PaymentStatusMessage";
 import { useSelector } from "react-redux";
 import './CheckoutForm.css';
+import { useEffect } from "react";
+import { getProductsOfCartByClientId } from "../../api/CartApi";
+import jwt_decode from "jwt-decode";
+import { useHistory } from "react-router";
+import { getClientIdByEmail } from "../../api/ClientApi";
+
 
 export default function CheckoutForm(props) {
 
   const state = useSelector((state) => state);
 
-  const cart = {
-    "productIds": state.cart
-  }
+  const history = useHistory();
 
   const [isTransactionFinished, setIsTransactionFinished] = useState(false);
   const [error, setError] = useState(null);
@@ -22,6 +26,9 @@ export default function CheckoutForm(props) {
 
   const [paymentStatus,setPaymentStatus] = useState("");
   const [paymentErrorMessage,setPaymenterrorMessage]=useState("")
+
+  const [cart,setCart] = useState()
+  const [clientId,setClientId] = useState()
   
   const handleChange = async (event) => {
     setDisabled(event.empty);
@@ -35,7 +42,7 @@ export default function CheckoutForm(props) {
     }
     console.log(cart)
     setProcessing(true);
-    createPaymentIntentWithCustomerId(cart,state.userId)
+    createPaymentIntent(clientId)
     .then(response => {
         console.log(response.data) //todo:remove
         stripe.confirmCardPayment(
@@ -51,7 +58,13 @@ export default function CheckoutForm(props) {
                 else if(response2.error){
                   setPaymenterrorMessage(response2.error.message)
                   setPaymentStatus("failed")
-                }                
+                }
+                savePayment({
+                  "customerId": clientId,
+                  "paymentIntentId": response2.paymentIntent.id,
+                  "paymentIntentStatus": response2.paymentIntent.status
+    
+                }) //todo: add datetime               
                 
                 }).then(response3=>{
                   setProcessing(false)
@@ -60,6 +73,17 @@ export default function CheckoutForm(props) {
     })
 
   };
+
+  useEffect(()=>{
+    state.accessToken!=="" 
+    ? 
+    getClientIdByEmail(jwt_decode(state.accessToken).sub)
+        .then(respone=>{
+          setClientId(respone.data)
+          getProductsOfCartByClientId(respone.data)
+            .then(response2=>setCart({"productIds":response2.data.map(product=>product.id)}))}) 
+    : history.push("/login")
+  },[state])
 
   return (
   !isTransactionFinished ? (

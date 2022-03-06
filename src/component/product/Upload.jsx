@@ -1,30 +1,36 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
 import styled from 'styled-components';
 
 import {H1, Form, Input, BtnInput, Container} from '../../css/FormStyledComponents';
 import { postProduct } from '../../api/ProductApi';
 
+import jwt_decode from "jwt-decode";
+import { useHistory } from "react-router";
+import { getClientIdByEmail } from "../../api/ClientApi";
+
 export default function Upload() {
 
-    const [uploadData, setUploadData] = useState(
-        {
-            productType: "ITEM",
-            name: "string",
-            price: 0,
-            description: "string"
-          }
-    )
+    const state = useSelector((state) => state);
+
+    const history = useHistory();
 
     const submitHandler = e => {
         e.preventDefault();
-        setUploadData({
+        let uploadData = {
             productType: "ITEM",
             name: e.target.elements.name.value,
             price: e.target.elements.price.value,
             description: e.target.elements.description.value
-        });
+        };
         console.log(uploadData);
-        postProduct(1, uploadData);
+        state.accessToken!=="" 
+        ? 
+        getClientIdByEmail(jwt_decode(state.accessToken).sub)
+        .then(respone=>
+        postProduct(respone.data, uploadData))       
+        : history.push("/login")
+        
     }
 
     return (

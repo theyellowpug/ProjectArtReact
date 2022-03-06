@@ -2,28 +2,33 @@ import React, {useState,useEffect} from "react";
 import styled from "styled-components";
 import { getProductById } from "../api/ProductApi";
 import { useHistory } from "react-router";
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from 'redux';
-import { CartActionCreators } from "../state/actions/CartActions";
 import LoadingIcon from "../component/multipleUse/LoadingIcon";
 import { getAllByProductId as getAllComments } from "../api/CommentApi";
 import Comments from '../component/multipleUse/Comments';
+import { addProductsToCartByClientId } from "../api/CartApi";
+import { useSelector } from "react-redux";
+import jwt_decode from "jwt-decode";
+import { getClientIdByEmail } from '../api/ClientApi';
 
 export const ProductDetailsPage = (props) => {
     
     const productId = props.match.params.productId;
     const history = useHistory();
 
-    const dispatch = useDispatch();    
-    const { addToCart/*,removeFromCart */} = bindActionCreators( CartActionCreators, dispatch);
+    const state = useSelector((state) => state);
 
     const [productData,setProductData]=useState();
     const [commentData, setCommentData] = useState();
     const [isLoaded,setIsLoaded]=useState(false);
 
     const addAndForwardToCartPage = (id) =>{
-        addToCart(id)
-        history.push("/cart")
+
+        state.accessToken!=="" 
+        ? 
+        getClientIdByEmail(jwt_decode(state.accessToken).sub)
+            .then(respone=>addProductsToCartByClientId(respone.data, productId)
+                .then(response2=>history.push("/cart"))) 
+        : history.push("/login")
     }
 
     useEffect(()=>{

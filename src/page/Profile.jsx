@@ -56,7 +56,7 @@ export const Profile = (props) => {
                         console.log("Is user artist?: " + response3.data)
                     }))
                 .then(response4 => setIsLoaded(true))} )
-        },[clientId]) // eslint-disable-line react-hooks/exhaustive-deps
+        },[state,clientId]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         
