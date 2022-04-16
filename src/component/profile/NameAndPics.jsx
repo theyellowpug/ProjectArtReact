@@ -8,7 +8,7 @@ import Highlights from './Highlights';
 
 const NameAndPics = (props) => {
 
-    const profPicURL = "http://localhost:8080/profile/getProfilePic?id=" + props.clientId;
+    const profPicURL = "http://139.59.129.133:8080/profile/getProfilePic?id=" + props.clientId;
     const [hasProfileImg, setHasProfileImg] = useState(false);
     useEffect(()=>{
         hasProfilePic(props.clientId).then(response => {
