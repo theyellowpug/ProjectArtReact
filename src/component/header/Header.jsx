@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
-import ReactPlayer from 'react-player';
+//import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 
 import Menu from './Menu';
-import anim_sun  from "../../VisualElements/anim_Sun.mp4";
-import anim_moon from "../../VisualElements/anim_Moon.mp4";
+//import anim_sun  from "../../VisualElements/anim_Sun.mp4";
+//import anim_moon from "../../VisualElements/anim_Moon.mp4";
 import NotificationBar from './NotificationBar';   
 import MainLogo from './MainLogo'; 
 //import { TimeAndDate } from '../../utilities/TimeAndDate';
@@ -53,13 +53,13 @@ export default function Header(props) {
         </HeaderContainer>
     )
 }
-
+/*
 const celestialBody = {
     position: 'absolute',
     left: '14.5vw',
     height: '10vh'
 }
-
+*/
 const HeaderContainer = styled.div`
     width: 100%;
     position: sticky;
@@ -81,8 +81,11 @@ const TimeAndDateContainer = styled.div`
     padding-left: 1.7vw;
     padding-top: 9vh;
 `;
-*/
+
+
 const TimeAndDateText = styled.p`
     font-weight: 550;
     opacity: 65%;
 `;
+
+*/

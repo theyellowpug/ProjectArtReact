@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
+//import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { hasProfilePic } from '../../api/ProfileApi';
 import defaultProfilePic from '../../VisualElements/defaultProfilePic.png';
 

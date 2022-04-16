@@ -62,7 +62,7 @@ export const Profile = (props) => {
         
         isLoaded ?
         <main>
-            {clientId==currentClientId ? <ControlMenu/> : <Follow/>}
+            {clientId == currentClientId ? <ControlMenu/> : <Follow/>}
             <FlexContainer>
                 <NameAndPics clientName={profileData.name} clientTitle={profileData.title} clientId={clientId}/>
                 <Description description={profileData.longDescription}/>
@@ -111,7 +111,7 @@ const ProductTitle = styled.p`
     margin: 20px 50vw -10px 0px;
 `;
 
-const FollowButton = styled
+//const FollowButton = styled
 
 /*
 const commentLoadingStyle = {

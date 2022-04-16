@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 import styled from 'styled-components';
-import {white, nature_green, soft_shadow} from '../../css/COLORS.jsx';
+//import {white, nature_green, soft_shadow} from '../../css/COLORS.jsx';
 
 export default function Menu() {
 
