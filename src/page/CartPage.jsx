@@ -1,9 +1,11 @@
 import React from "react";
 import { useHistory } from "react-router";
 import { useSelector } from "react-redux"
-import { useDispatch } from "react-redux";
-import { bindActionCreators } from 'redux';
-import { CartActionCreators}  from "../state/actions/CartActions";
+import { useEffect } from "react";
+import { useState } from "react";
+import jwt_decode from "jwt-decode";
+import { getClientIdByEmail } from '../api/ClientApi';
+import { getProductsOfCartByClientId } from "../api/CartApi";
 
 
 export const CartPage = (props) => {
@@ -11,16 +13,25 @@ export const CartPage = (props) => {
     const state = useSelector((state) => state);
     const history = useHistory();
 
-    const dispatch = useDispatch();    
-    const { addToCart/*,removeFromCart */} = bindActionCreators( CartActionCreators, dispatch);
+    const [products,setProducts] = useState([])
 
     const forwardToCheckoutPage = (event) =>{
         event.preventDefault();
         history.push("/checkout")
     }
 
+    useEffect(()=>{
+        state.accessToken!=="" ?
+            getClientIdByEmail(jwt_decode(state.accessToken).sub)
+            .then(respone=>getProductsOfCartByClientId(respone.data)
+            .then(respone2=>setProducts(respone2.data)))
+            :
+            setProducts([])
+                
+    },[state])
+
     return (
-            state.cart.length === 0 ? (
+            products.length === 0 ? (
                 <div>
                     <h1>Cart is empty</h1>
                 </div>
@@ -31,8 +42,7 @@ export const CartPage = (props) => {
                     <p>Cart Placeholder</p>
                     <button onClick={forwardToCheckoutPage}>Checkout</button>
                     <p>Cart elements:</p>
-                    {state.cart.map(productId=><ul key={productId}>{productId}</ul>)}
-                    <button onClick={() => addToCart(1)}>Add to cart</button>
+                    {products.map(product=><ul key={product.id}>{"productId: "+product.id+"product name:"+product.name}</ul>)}
                 </div>
             ))
 }

@@ -5,11 +5,7 @@ import ReactPlayer from 'react-player/lazy';
 
 const HighlightItem = (props) => {
     return (
-        props.data.video === 'false' 
-        ?
         <LazyLoadImage style={ItemStyle} src={props.data.url}/>
-        :
-        <span><ReactPlayer style={ItemStyle} url={props.data.url}/></span>
     );
 
 }

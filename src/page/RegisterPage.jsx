@@ -31,6 +31,7 @@ export default function RegisterPage() {
         }
         console.log(registrationData)
         postClient(registrationData)
+        history.push("/")
         history.push("/login")
     }
     

@@ -1,19 +1,35 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { hasProfilePic } from '../../api/ProfileApi';
+import defaultProfilePic from '../../VisualElements/defaultProfilePic.png';
 
 import Highlights from './Highlights';
 
 const NameAndPics = (props) => {
+
+    const profPicURL = "http://localhost:8080/profile/getProfilePic?id=" + props.clientId;
+    const [hasProfileImg, setHasProfileImg] = useState(false);
+    useEffect(()=>{
+        hasProfilePic(props.clientId).then(response => {
+            console.log(response.status);
+            if(response.status == 200)
+                setHasProfileImg(true);
+        })
+    },[])
+
     return (
         <Container>
             <LeftSection>
-                <LazyLoadImage style={ProfilePic} src="https://upload.wikimedia.org/wikipedia/commons/7/79/Tesla_circa_1890.jpeg"/>
+                {hasProfileImg ?
+                <img style={ProfilePic} src={profPicURL}/>
+                :
+                <img style={ProfilePic} src={defaultProfilePic}/>
+                }
                 <Name>{props.clientName}</Name>
                 <Title>{props.clientTitle}</Title>
             </LeftSection>
             <Highlights/>
-            <FollowEdit><p>Follow</p><p>Followers: 42</p></FollowEdit>
         </Container>
     )
 }
@@ -36,7 +52,8 @@ const LeftSection = styled.div`
 const ProfilePic = {
     alignSelf: 'flex-start',
     height: '40vh',
-    marginTop: '2vh'
+    marginTop: '2vh',
+    borderRadius: '8px'
 };
 
 const FollowEdit = styled.div`
