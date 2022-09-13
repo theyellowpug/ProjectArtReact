@@ -30,6 +30,9 @@ export const ItemContainer = (props) => {
             element.style.width = '60vw';
         }
     }
+    useEffect(() => {
+
+    }, [itemIsOpened])
 
     return (
         <React.Fragment>

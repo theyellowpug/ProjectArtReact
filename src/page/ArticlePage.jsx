@@ -14,7 +14,8 @@ const ArticlePage = (props) => {
     return (
         <main>
             <Container>
-                
+                <h1>Főcím</h1>
+                <p>Bekezdés bekezdésének bekezdése. Bizony, bajos badarság. Bármennyire bánt is, boldog bolond büszkélkedik bennem.</p>
             </Container>
         </main>
     )
@@ -29,5 +30,8 @@ const Container = styled.div`
     background-color: #e0f0ff65;
     box-shadow: 2px 2px #00000020;
     border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `;  
 

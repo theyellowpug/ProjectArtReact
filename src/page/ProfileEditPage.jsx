@@ -11,7 +11,7 @@ import defaultProfilePic from '../VisualElements/defaultProfilePic.png';
 export default function ProfileEditPage() {
     
     // import image convert tool
-    const Jimp = require("jimp");
+    // const Jimp = require("jimp");
     //import global state redux
     const state = useSelector((state) => state); 
     // import browse history

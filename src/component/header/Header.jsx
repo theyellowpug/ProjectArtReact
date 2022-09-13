@@ -1,12 +1,13 @@
 import React, {useEffect} from 'react';
-import ReactPlayer from 'react-player';
+//import ReactPlayer from 'react-player';
 import styled from 'styled-components';
 
 import Menu from './Menu';
-import anim_sun  from "../../VisualElements/anim_Sun.mp4";
-import anim_moon from "../../VisualElements/anim_Moon.mp4";
-import NotificationBar from './NotificationBar';    
-import { TimeAndDate } from '../../utilities/TimeAndDate';
+//import anim_sun  from "../../VisualElements/anim_Sun.mp4";
+//import anim_moon from "../../VisualElements/anim_Moon.mp4";
+import NotificationBar from './NotificationBar';   
+import MainLogo from './MainLogo'; 
+//import { TimeAndDate } from '../../utilities/TimeAndDate';
 
 import { /*useSelector, */useDispatch } from "react-redux"
 import { bindActionCreators } from 'redux';
@@ -18,7 +19,7 @@ import jwt_decode from "jwt-decode";
 import { getClientIdByEmail } from '../../api/ClientApi';
 
 
-const time = TimeAndDate();
+//const time = TimeAndDate();
 
 export default function Header(props) {
 
@@ -45,52 +46,35 @@ export default function Header(props) {
     },[]) // eslint-disable-line react-hooks/exhaustive-deps
 
     return(
-        !props.isDay ?
-        <HeaderContainer style={headerDay}>
-            <NotificationBar />
-            <TimeAndDateContainer><TimeAndDateText>{time}</TimeAndDateText></TimeAndDateContainer>
-            <ReactPlayer style={celestialBody} url={anim_sun} controls={false} loop={true} muted={true} playing={true} width='125px'></ReactPlayer>
+        <HeaderContainer>
+            <MainLogo/>
             <Menu/>
-        </HeaderContainer>
-        :
-        <HeaderContainer style={headerNight}>
             <NotificationBar />
-            <TimeAndDateContainer><TimeAndDateText>{time}</TimeAndDateText></TimeAndDateContainer>
-            <ReactPlayer style={celestialBody} url={anim_moon} controls={false} loop={true} muted={true} playing={true} width='125px'></ReactPlayer>
-            <Menu/>
         </HeaderContainer>
     )
 }
-
-const headerDay = {
-    background: '#496fad',
-}
-
-const headerNight = {
-    background: '#1a345e',
-}
-
+/*
 const celestialBody = {
     position: 'absolute',
     left: '14.5vw',
     height: '10vh'
 }
-
+*/
 const HeaderContainer = styled.div`
     width: 100%;
     position: sticky;
     position: -webkit-sticky;
-    top: -7.5vh;
+    //top: -7.5vh;
+    background: #5B7B7A;
 
-    height: 13.5vh;
-    min-height: 125px;
+    min-height: 6vh;
     box-shadow: 0 6px 4px #8fa0ba;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
 `;
-
+/*
 const TimeAndDateContainer = styled.div`
     position: absolute;
     left: 0;
@@ -98,7 +82,10 @@ const TimeAndDateContainer = styled.div`
     padding-top: 9vh;
 `;
 
+
 const TimeAndDateText = styled.p`
     font-weight: 550;
     opacity: 65%;
 `;
+
+*/
