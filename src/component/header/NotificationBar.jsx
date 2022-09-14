@@ -89,9 +89,6 @@ export default function NotificationBar() {
 }
 
 const NotificationContainer = styled.div`
-    position: absolute;
-    top: 8vh;
-    right: 6vw;
     //width: 170px;
     height: 40px;
     display: flex;
@@ -100,22 +97,22 @@ const NotificationContainer = styled.div`
 
 const NotificationButton = styled.div`
     margin-top: 10px; 
-    color: #313131;
+    color: white;
     min-width: 30px;
     height: 24px;
     padding: 1px 3px;
-    background: white;
+    background: #5B7B7A;
     border-radius: 6px;
     margin-left: 6px;
     z-index: 2;
     text-align: center;
     box-shadow: 1px 1px #00000070;
 
-    transition: all 400ms ease;
+    transition: all 200ms ease;
     &:hover{
-        background: #5b7db5; 
+        background: #EA8C55; 
         cursor: pointer;      
-        box-shadow: 0px 0px 4px 4px white;
-        color: #ecf0f6
+        box-shadow: 0px 0px 1px 1px #00000053;
+        color: white;
     }
 `;
